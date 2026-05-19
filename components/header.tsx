@@ -37,7 +37,7 @@ export function Header() {
 
         <div className="hidden lg:block">
           <ButtonLink href="/contact" className="h-11 px-6">
-            Start a technical conversation
+            Start a conversation
           </ButtonLink>
         </div>
 
@@ -74,7 +74,7 @@ export function Header() {
             ))}
           </nav>
           <ButtonLink href="/contact" className="mt-4 w-full" onClickCapture={() => setOpen(false)}>
-            Start a technical conversation
+            Start a conversation
           </ButtonLink>
         </div>
       </div>

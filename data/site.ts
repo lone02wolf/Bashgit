@@ -4,6 +4,7 @@ import {
   Blocks,
   Box,
   Braces,
+  ClipboardCheck,
   Cloud,
   CloudUpload,
   Code2,
@@ -18,6 +19,7 @@ import {
   Network,
   PackageCheck,
   Radar,
+  Rocket,
   Route,
   ServerCog,
   ShieldCheck,
@@ -35,37 +37,47 @@ export const navItems = [
 ];
 
 export const trustItems = [
-  { icon: Compass, label: "Architecture-first approach" },
-  { icon: Layers3, label: "Production-grade engineering" },
-  { icon: PackageCheck, label: "Clean, maintainable code" },
-  { icon: Network, label: "Long-term partnership" }
+  { icon: Compass, label: "Founder-led architecture attention" },
+  { icon: Layers3, label: "Backend, cloud and reliability together" },
+  { icon: PackageCheck, label: "Delivery artifacts from day one" },
+  { icon: Network, label: "Built for long-term product ownership" }
 ];
 
 export const operatingLayers = [
   {
     title: "Product Layer",
     items: ["Interfaces", "Workflows", "User Journeys"],
-    icon: Blocks
+    icon: Blocks,
+    signal: "User behavior",
+    output: "usable product surface"
   },
   {
     title: "Application Layer",
     items: ["APIs", "Services", "Business Logic"],
-    icon: Workflow
+    icon: Workflow,
+    signal: "Domain contracts",
+    output: "changeable service core"
   },
   {
     title: "Data Layer",
     items: ["Databases", "Cache", "Storage"],
-    icon: Database
+    icon: Database,
+    signal: "State integrity",
+    output: "trusted data flows"
   },
   {
     title: "Infrastructure Layer",
     items: ["Cloud", "Containers", "Networking"],
-    icon: Cloud
+    icon: Cloud,
+    signal: "Runtime control",
+    output: "repeatable environments"
   },
   {
     title: "Reliability Layer",
     items: ["Monitoring", "Logging", "Backups"],
-    icon: LineChart
+    icon: LineChart,
+    signal: "Production feedback",
+    output: "visible operations"
   }
 ];
 
@@ -101,31 +113,31 @@ export const services = [
   {
     icon: Box,
     title: "Product Engineering",
-    copy: "Web applications, dashboards, SaaS platforms and internal tools built for performance, usability and growth.",
+    copy: "SaaS modules, dashboards and internal tools designed around real workflows, clean state and maintainable frontend architecture.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"]
   },
   {
     icon: Braces,
     title: "Backend & APIs",
-    copy: "Robust APIs and backend systems with clean architecture, authentication and reliable integrations.",
+    copy: "Service boundaries, API contracts, authentication, database design and integration layers built to survive product change.",
     tags: ["NestJS", "Node.js", "GraphQL", "PostgreSQL"]
   },
   {
     icon: Cog,
     title: "Platform Engineering",
-    copy: "Container orchestration, environment management and platform engineering for scalable systems.",
+    copy: "Practical platform foundations for teams that need repeatable environments, controlled releases and operational clarity.",
     tags: ["Kubernetes", "Helm", "ArgoCD", "Ingress"]
   },
   {
     icon: CloudUpload,
     title: "Cloud & DevOps",
-    copy: "Cloud architecture, CI/CD and automation that help your teams ship faster and operate with confidence.",
+    copy: "Cloud architecture, infrastructure as code and CI/CD pipelines that reduce manual release risk and improve team velocity.",
     tags: ["AWS", "GCP", "Azure", "Terraform"]
   },
   {
     icon: LineChart,
     title: "Observability & Reliability",
-    copy: "Monitoring, logging, alerting and incident readiness so your systems stay healthy in production.",
+    copy: "Metrics, logs, alerts, runbooks and recovery paths that make production behavior visible before it becomes a customer problem.",
     tags: ["Prometheus", "Grafana", "Loki", "Alerts"]
   }
 ];
@@ -174,39 +186,39 @@ export const principles = [
 
 export const results = [
   {
-    icon: ArrowUpRight,
-    title: "SaaS Platform Modernization",
-    copy: "Reduced infrastructure cost by 40% and improved deployment speed by 3.5x."
+    icon: ClipboardCheck,
+    title: "Architecture Review Sprint",
+    copy: "A focused technical review that produces a system map, risk register, decision log and prioritized delivery path."
   },
   {
     icon: LockKeyhole,
-    title: "E-commerce Scale",
-    copy: "Re-architected backend services resulting in 99.99% uptime during peak traffic and 2x performance improvement."
+    title: "Cloud Delivery Foundation",
+    copy: "A production-ready base for environments, CI/CD, infrastructure as code, secrets, release checks and rollback discipline."
   },
   {
     icon: Zap,
-    title: "DevOps Automation",
-    copy: "Implemented CI/CD and infrastructure as code, reducing manual work by 70% and release time by 60%."
+    title: "Reliability Control Plane",
+    copy: "Dashboards, alerts, runbooks and operational signals that help teams understand the system before incidents escalate."
   }
 ];
 
 export const insights = [
   {
-    category: "Architecture",
+    category: "Architecture Guide",
     title: "Designing backend systems that can be changed without drama",
     excerpt: "A practical look at boundaries, contracts and deployment habits that keep product teams moving.",
     date: "May 2026",
     readTime: "7 min read"
   },
   {
-    category: "Reliability",
+    category: "Reliability Guide",
     title: "Observability is a product capability",
     excerpt: "Dashboards and alerts are useful, but the real advantage is designing systems that explain themselves.",
     date: "April 2026",
     readTime: "6 min read"
   },
   {
-    category: "Platform",
+    category: "Platform Guide",
     title: "When Kubernetes helps and when it quietly taxes the team",
     excerpt: "How to evaluate orchestration through operational maturity, release cadence and ownership.",
     date: "March 2026",
@@ -218,19 +230,40 @@ export const techStack = ["Next.js", "React", "TypeScript", "NestJS", "PostgreSQ
 
 export const engagementModels = [
   {
-    title: "Product Build Partner",
-    copy: "For teams turning a validated idea into a production product. We own architecture, core implementation, release flow and early operational foundations.",
-    fit: "Best for MVPs, internal platforms, SaaS modules and customer-facing dashboards."
+    title: "Founder-Led Product Build",
+    copy: "For teams turning a validated workflow into a production-grade application. We own architecture, core implementation, release flow and early operational foundations.",
+    fit: "Best for B2B SaaS modules, internal platforms, admin systems and workflow-heavy tools."
   },
   {
     title: "System Modernization",
-    copy: "For products carrying architectural debt, fragile deployments or slow backend workflows. We map constraints, replace risky parts and keep the business moving.",
+    copy: "For products carrying architectural debt, fragile deployments or slow backend workflows. We map constraints, isolate risk and replace the parts blocking delivery.",
     fit: "Best for API redesigns, database boundaries, cloud moves and legacy service cleanup."
   },
   {
     title: "Platform & Reliability Retainer",
     copy: "For teams that need senior infrastructure support without building a full platform group. We improve environments, delivery, observability and incident readiness.",
     fit: "Best for Kubernetes, CI/CD, monitoring, cost control and production hardening."
+  }
+];
+
+export const labSystems = [
+  {
+    icon: Rocket,
+    title: "BashGit Launch Base",
+    copy: "A reusable production foundation for new product builds: repository structure, auth-ready backend, CI/CD, environments and deployment hygiene.",
+    outcome: "Faster path from idea to reliable first release."
+  },
+  {
+    icon: ShieldCheck,
+    title: "Reliability Review Kit",
+    copy: "A structured review model for logging, metrics, alerts, backups, runbooks, ownership and incident readiness.",
+    outcome: "Clear visibility into what can fail and what to fix first."
+  },
+  {
+    icon: ArrowUpRight,
+    title: "Platform Blueprint",
+    copy: "Opinionated cloud and delivery patterns for teams moving toward containers, managed services and infrastructure as code.",
+    outcome: "A practical architecture path without over-engineering."
   }
 ];
 

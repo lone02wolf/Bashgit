@@ -11,7 +11,7 @@ export default function InsightsPage() {
     <>
       <PageHero
         eyebrow="Insights"
-        title={<>Engineering notes on architecture, reliability and delivery.</>}
+        title={<>Technical field notes on architecture, reliability and delivery.</>}
         copy="Practical thinking from the BashGit Labs operating model: how modern teams design, ship and maintain software systems under real business constraints."
       />
       <section className="section-shell">

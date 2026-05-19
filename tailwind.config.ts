@@ -19,7 +19,12 @@ const config: Config = {
         signal: {
           600: "#0c70ff",
           500: "#1878ff",
-          400: "#4d9bff"
+          400: "#4d9bff",
+          300: "#86bfff"
+        },
+        ember: {
+          500: "#c98b2c",
+          400: "#e3ad55"
         },
         line: "#d9e1ec",
         panel: "#f8fafc"

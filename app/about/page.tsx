@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const commitments = [
-  "Senior engineers stay close to the work.",
+  "Founder-led engineering stays close to the work.",
   "Architecture decisions are written down and revisited.",
   "Production realities shape product decisions early.",
   "Systems are designed for the people who will maintain them."
@@ -19,8 +19,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About BashGit Labs"
-        title={<>Engineering partners for teams that need systems to last.</>}
-        copy="BashGit Labs is built around long-term engineering partnership: calm technical leadership, careful execution and production systems that improve over time."
+        title={<>A young engineering company built for systems that need to last.</>}
+        copy="BashGit Labs is a founder-led software and cloud engineering studio built around architecture discipline, careful execution and production systems that improve over time."
       />
       <section className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr]">

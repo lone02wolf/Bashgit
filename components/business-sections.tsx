@@ -1,8 +1,10 @@
 import { ArrowRight, CheckCircle2, CircleDot, FileText, Gauge, Layers3, Route, ShieldCheck, Workflow } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
+import { TechIcon } from "@/components/tech-icon";
 import {
   engagementModels,
   expertiseAreas,
+  labSystems,
   operatingStandards,
   processDeliverables,
   serviceProofPoints,
@@ -33,6 +35,35 @@ export function EngagementModels() {
               </div>
             </StaggerItem>
           ))}
+        </Stagger>
+      </div>
+    </section>
+  );
+}
+
+export function LabSystemsSection() {
+  return (
+    <section className="section-shell border-y border-line bg-panel/60">
+      <div className="grid gap-10 lg:grid-cols-[390px_1fr]">
+        <Reveal>
+          <p className="eyebrow text-signal-600">BashGit Labs Systems</p>
+          <h2 className="section-title mt-4">Service work today, reusable engineering systems tomorrow.</h2>
+          <p className="section-copy mt-5">
+            BashGit Labs is being built as more than a project shop. Each engagement sharpens reusable patterns for product launches, cloud delivery and reliability operations.
+          </p>
+        </Reveal>
+        <Stagger className="grid gap-4 md:grid-cols-3">
+          {labSystems.map((system) => {
+            const Icon = system.icon;
+            return (
+              <StaggerItem key={system.title} className="rounded-[8px] border border-line bg-white p-7">
+                <Icon className="mb-6 size-9 text-ink-900" strokeWidth={1.5} />
+                <h3 className="text-xl font-semibold leading-tight text-ink-950">{system.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-ink-700">{system.copy}</p>
+                <p className="mt-5 border-t border-line pt-4 text-sm font-bold leading-6 text-ink-950">{system.outcome}</p>
+              </StaggerItem>
+            );
+          })}
         </Stagger>
       </div>
     </section>
@@ -233,7 +264,8 @@ export function TechnologySection() {
           </div>
           <div className="flex flex-wrap gap-3">
             {techStack.map((tech) => (
-              <span key={tech} className="rounded-[5px] border border-line bg-panel px-4 py-2 text-sm font-semibold text-ink-800">
+              <span key={tech} className="inline-flex items-center gap-2 rounded-[5px] border border-line bg-panel px-3.5 py-2 text-sm font-semibold text-ink-800">
+                <TechIcon tech={tech} />
                 {tech}
               </span>
             ))}

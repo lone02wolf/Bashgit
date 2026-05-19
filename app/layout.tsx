@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | BashGit Labs"
   },
   description:
-    "BashGit Labs designs, builds and operates reliable product engineering, backend, cloud infrastructure, DevOps and observability systems.",
+    "BashGit Labs designs, builds and operates reliable software platforms, backend systems, cloud infrastructure, DevOps and observability foundations for serious product teams.",
   metadataBase: new URL("https://bashgit.com")
 };
 

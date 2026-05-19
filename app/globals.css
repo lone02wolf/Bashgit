@@ -6,6 +6,7 @@
   color-scheme: light;
   --ink: #061229;
   --signal: #1878ff;
+  --paper: #fbfcff;
 }
 
 * {
@@ -19,7 +20,7 @@ html {
 
 body {
   margin: 0;
-  background: #ffffff;
+  background: var(--paper);
   color: var(--ink);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   text-rendering: optimizeLegibility;
@@ -32,7 +33,7 @@ body {
 
 @layer components {
   .section-shell {
-    @apply mx-auto max-w-[1480px] px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-16;
+    @apply mx-auto max-w-[1480px] px-5 py-14 sm:px-8 sm:py-20 lg:px-10 lg:py-24;
   }
 
   .eyebrow {
@@ -84,6 +85,34 @@ body {
     radial-gradient(circle at 20% 20%, rgba(24, 120, 255, 0.08), transparent 24%),
     radial-gradient(circle at 82% 36%, rgba(6, 18, 41, 0.05), transparent 28%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.35), #fff 92%);
+}
+
+.hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(6, 18, 41, 0.035), transparent 32%, transparent 68%, rgba(24, 120, 255, 0.045)),
+    radial-gradient(circle at 12% 18%, rgba(201, 139, 44, 0.12), transparent 22%),
+    radial-gradient(circle at 80% 20%, rgba(24, 120, 255, 0.13), transparent 28%);
+}
+
+.system-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(77, 155, 255, 0.22), transparent 28%),
+    radial-gradient(circle at 78% 74%, rgba(201, 139, 44, 0.16), transparent 24%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 38%);
+  pointer-events: none;
+}
+
+.capability-rail {
+  background:
+    linear-gradient(90deg, rgba(6, 18, 41, 0.035), transparent),
+    linear-gradient(#d9e1ec, #d9e1ec) left top / 1px 100% no-repeat;
 }
 
 .layer-plate {

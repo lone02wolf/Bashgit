@@ -18,7 +18,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title={<>Bring the system challenge. We will map the path forward.</>}
-        copy="Start a focused technical conversation about product engineering, backend systems, cloud infrastructure, Kubernetes, DevOps or reliability."
+        copy="Start a practical conversation about the product, platform, backend or reliability challenge you want to solve."
       />
       <ContactPanel />
       <section className="section-shell pt-0">

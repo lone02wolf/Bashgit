@@ -11,8 +11,8 @@ export default function ExpertisePage() {
     <>
       <PageHero
         eyebrow="Engineering Expertise"
-        title={<>Practical technical depth across the product infrastructure stack.</>}
-        copy="Expertise at BashGit Labs is not a menu of technologies. It is the ability to connect product behavior, backend architecture, cloud delivery and reliability into one system your team can understand and extend."
+        title={<>Practical technical depth across product, backend, cloud and reliability.</>}
+        copy="Expertise at BashGit Labs is not a menu of tools. It is the ability to connect product behavior, service boundaries, deployment flow and production feedback into one system your team can understand and extend."
       />
       <ExpertiseOperatingModel />
       <ExpertiseMatrix />

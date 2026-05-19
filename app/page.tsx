@@ -7,6 +7,7 @@ import {
   ProcessSection,
   ServicesPreview
 } from "@/components/sections";
+import { LabSystemsSection } from "@/components/business-sections";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <OperatingLayer />
       <PhilosophyBand />
       <ServicesPreview />
+      <LabSystemsSection />
       <ProcessSection />
       <ImpactSection />
       <CtaBand />

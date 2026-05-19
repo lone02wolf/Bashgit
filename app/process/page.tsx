@@ -12,7 +12,7 @@ export default function ProcessPage() {
     <>
       <PageHero
         eyebrow="Delivery Process"
-        title={<>A calm operating model for complex engineering work.</>}
+        title={<>A visible operating model for complex engineering work.</>}
         copy="Our process turns uncertainty into architecture, architecture into delivery, and delivery into systems your team can operate with confidence."
       />
       <section className="section-shell py-10">

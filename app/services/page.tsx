@@ -11,8 +11,8 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Engineering Services"
-        title={<>Product, platform and reliability engineering for serious systems.</>}
-        copy="We work across the software stack, from user-facing products and backend APIs to infrastructure, delivery automation and production observability."
+        title={<>Product, platform and reliability engineering for serious B2B systems.</>}
+        copy="We help teams build the software layer, backend foundation and cloud operating model they need before growth makes fragile architecture expensive."
       />
       <ServicesPreview intro={false} />
       <EngagementModels />

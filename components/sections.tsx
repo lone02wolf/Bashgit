@@ -3,8 +3,10 @@ import { ArrowRight, GitBranch, Mail, MessageSquare, Network, Star } from "lucid
 import type React from "react";
 import { ArchitectureDiagram, LifecycleMap } from "@/components/architecture-diagram";
 import { ButtonLink } from "@/components/button-link";
+import { ContactForm } from "@/components/contact-form";
 import { Logo } from "@/components/logo";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
+import { TechIcon } from "@/components/tech-icon";
 import {
   insights,
   operatingLayers,
@@ -19,24 +21,24 @@ import {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-line/70 bg-white">
+    <section className="hero-stage relative overflow-hidden border-b border-line/70 bg-white">
       <div className="hero-grid absolute inset-0 opacity-70" />
-      <div className="mx-auto grid max-w-[1480px] gap-10 px-5 pb-12 pt-12 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10 lg:pb-16 lg:pt-14">
+      <div className="mx-auto grid max-w-[1480px] gap-10 px-5 pb-14 pt-14 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10 lg:pb-20 lg:pt-20">
         <div className="relative z-10 flex min-w-0 flex-col justify-center">
           <Reveal>
             <p className="eyebrow">
-              Software Engineering & Infrastructure <span />
+              Founder-led Software & Cloud Engineering <span />
             </p>
-            <h1 className="mt-5 max-w-[640px] text-[2.62rem] font-semibold leading-[1.02] text-ink-950 sm:text-[4.15rem] sm:leading-[0.98] lg:text-[4.7rem] xl:text-[5.35rem]">
-              We build systems that deliver value today and scale <span className="text-signal-600">tomorrow.</span>
+            <h1 className="mt-5 max-w-[680px] text-[2.6rem] font-semibold leading-[1.02] text-ink-950 sm:text-[3.75rem] sm:leading-[1] lg:text-[4.25rem] xl:text-[4.7rem]">
+              Reliable software platforms for teams that cannot afford failure.
             </h1>
             <p className="mt-7 max-w-[540px] text-base leading-8 text-ink-700 sm:text-lg">
-              BashGit Labs partners with startups, SaaS companies and businesses to design, build, deploy and maintain reliable software systems, from applications to infrastructure and everything in between.
+              BashGit Labs helps B2B SaaS founders, product teams and infrastructure-heavy businesses design, build and operate scalable applications, backend systems and cloud delivery foundations.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <ButtonLink href="/contact">Start a technical conversation</ButtonLink>
+              <ButtonLink href="/contact">Start a conversation</ButtonLink>
               <ButtonLink href="/expertise" variant="ghost" arrow="down">
-                Explore our capabilities
+                See technical capabilities
               </ButtonLink>
             </div>
           </Reveal>
@@ -46,13 +48,13 @@ export function Hero() {
           <ArchitectureDiagram />
         </Reveal>
 
-        <Stagger className="relative z-10 grid gap-4 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4 lg:pt-1">
+        <Stagger className="relative z-10 grid gap-0 overflow-hidden rounded-[8px] border border-line bg-white/78 shadow-[0_18px_56px_rgba(6,18,41,0.07)] backdrop-blur sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
           {trustItems.map((item) => {
             const Icon = item.icon;
             return (
-              <StaggerItem key={item.label} className="flex items-center gap-4">
-                <Icon className="size-7 text-ink-700" strokeWidth={1.6} />
-                <span className="max-w-[150px] text-sm font-medium leading-5 text-ink-700">{item.label}</span>
+              <StaggerItem key={item.label} className="flex items-center gap-4 border-b border-r border-line/80 p-5 lg:border-b-0">
+                <Icon className="size-7 shrink-0 text-ink-900" strokeWidth={1.6} />
+                <span className="max-w-[210px] text-sm font-semibold leading-5 text-ink-800">{item.label}</span>
               </StaggerItem>
             );
           })}
@@ -84,7 +86,9 @@ export function OperatingLayer() {
               return (
                 <StaggerItem key={layer.title} className="relative rounded-[8px] border border-line bg-white p-6 shadow-[0_10px_30px_rgba(6,18,41,0.04)]">
                   {index < operatingLayers.length - 1 ? <span className="absolute -right-3 top-[58%] hidden size-1.5 rounded-full bg-signal-500 lg:block" /> : null}
-                  <h3 className="text-sm font-extrabold text-ink-950">{layer.title}</h3>
+                  <span className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-signal-600">Layer 0{index + 1}</span>
+                  <h3 className="mt-3 text-sm font-extrabold text-ink-950">{layer.title}</h3>
+                  <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.1em] text-ink-500">{layer.signal}</p>
                   <ul className="mt-4 space-y-1 text-sm text-ink-700">
                     {layer.items.map((item) => (
                       <li key={item}>{item}</li>
@@ -93,6 +97,7 @@ export function OperatingLayer() {
                   <div className="mt-7 grid h-24 place-items-center rounded-[6px] border border-line bg-panel/70">
                     <OperatingLayerVisual title={layer.title} />
                   </div>
+                  <p className="mt-4 border-t border-line pt-3 text-xs font-semibold leading-5 text-ink-700">{layer.output}</p>
                 </StaggerItem>
               );
             })}
@@ -103,11 +108,11 @@ export function OperatingLayer() {
           </div>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-6 rounded-[6px] border border-line bg-panel px-5 py-4 text-sm font-medium text-ink-700 lg:mr-0">
             <span>Security</span>
-            <span className="text-signal-600">·</span>
+            <span className="text-signal-600">/</span>
             <span>Automation</span>
-            <span className="text-signal-600">·</span>
+            <span className="text-signal-600">/</span>
             <span>Observability</span>
-            <span className="text-signal-600">·</span>
+            <span className="text-signal-600">/</span>
             <span>Continuous Delivery</span>
           </div>
         </Stagger>
@@ -210,11 +215,14 @@ export function PhilosophyBand() {
 export function ServicesPreview({ intro = true }: { intro?: boolean }) {
   return (
     <section className="section-shell" id="expertise">
-      <div className={intro ? "grid gap-8 lg:grid-cols-[330px_1fr]" : "grid gap-8"}>
+      <div className={intro ? "grid gap-10 lg:grid-cols-[390px_1fr]" : "grid gap-8"}>
         {intro ? (
           <Reveal>
             <p className="eyebrow text-signal-600">What We Do</p>
             <h2 className="section-title mt-4">End-to-end engineering capabilities built around <span>real product infrastructure.</span></h2>
+            <p className="mt-6 max-w-[340px] text-base leading-8 text-ink-700">
+              The offer is intentionally narrow: product surfaces, backend foundations, cloud delivery and reliability treated as one system.
+            </p>
             <p className="mt-8 flex items-start gap-3 text-sm font-semibold leading-6 text-ink-700">
               <Star className="mt-1 size-4 fill-ink-950 text-ink-950" />
               Senior engineering attention on every engagement.
@@ -222,20 +230,27 @@ export function ServicesPreview({ intro = true }: { intro?: boolean }) {
           </Reveal>
         ) : null}
 
-        <Stagger className={intro ? "grid gap-0 border-l border-line sm:grid-cols-2 xl:grid-cols-5" : "grid gap-4 sm:grid-cols-2 xl:grid-cols-5"}>
+        <Stagger className={intro ? "capability-rail grid gap-0 overflow-hidden rounded-[8px] border border-line bg-white shadow-[0_18px_70px_rgba(6,18,41,0.06)]" : "capability-rail grid gap-0 overflow-hidden rounded-[8px] border border-line bg-white shadow-[0_18px_70px_rgba(6,18,41,0.06)]"}>
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <StaggerItem
                 key={service.title}
-                className="group border-b border-r border-line bg-white p-7 transition duration-300 hover:-translate-y-1 hover:shadow-soft"
+                className="group grid gap-5 border-b border-line bg-white p-6 transition duration-300 hover:bg-panel/70 sm:grid-cols-[72px_1fr_190px] sm:items-center sm:p-7"
               >
-                <Icon className="mb-5 size-8 text-ink-800 transition group-hover:text-signal-600" strokeWidth={1.5} />
-                <h3 className="text-base font-extrabold text-ink-950">{service.title}</h3>
-                <p className="mt-5 min-h-[112px] text-sm leading-7 text-ink-700">{service.copy}</p>
-                <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-ink-700">
+                <span className="grid size-14 place-items-center rounded-[7px] border border-line bg-white text-ink-900 shadow-[0_10px_28px_rgba(6,18,41,0.05)] transition group-hover:border-signal-400 group-hover:text-signal-600">
+                  <Icon className="size-7" strokeWidth={1.5} />
+                </span>
+                <div>
+                  <h3 className="text-xl font-semibold tracking-[-0.01em] text-ink-950">{service.title}</h3>
+                  <p className="mt-3 max-w-[720px] text-sm leading-7 text-ink-700">{service.copy}</p>
+                </div>
+                <div className="flex flex-wrap gap-2 sm:justify-end">
                   {service.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
+                    <span key={tag} className="inline-flex items-center gap-1.5 rounded-[4px] border border-line bg-panel px-2.5 py-1 text-[11px] font-bold text-ink-700">
+                      <TechIcon tech={tag} />
+                      {tag}
+                    </span>
                   ))}
                 </div>
               </StaggerItem>
@@ -248,13 +263,6 @@ export function ServicesPreview({ intro = true }: { intro?: boolean }) {
 }
 
 export function ProcessSection() {
-  const markers = [
-    { label: "Clarity", left: "18%", top: "12%", tone: "text-signal-600" },
-    { label: "Confidence", left: "48%", top: "43%", tone: "text-ink-950" },
-    { label: "Control", left: "66%", top: "62%", tone: "text-ink-950" },
-    { label: "Continuous Value", left: "53%", top: "82%", tone: "text-signal-600" }
-  ];
-
   return (
     <section className="section-shell" id="process">
       <div className="grid gap-10 lg:grid-cols-[330px_1fr_420px]">
@@ -284,37 +292,48 @@ export function ProcessSection() {
           </Stagger>
         </div>
 
-        <Reveal delay={0.12} className="relative min-h-[430px] overflow-hidden rounded-[8px] bg-panel p-7">
-          <div className="contour-lines absolute inset-0 opacity-70" />
-          <svg className="absolute inset-0 h-full w-full text-signal-500" viewBox="0 0 420 430" fill="none" aria-hidden="true">
-            <path
-              className="flow-line bright"
-              d="M76 58 C72 120 118 154 201 185 S260 226 277 267 S250 326 224 354"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeDasharray="4 7"
-            />
-          </svg>
-          <div className="relative z-10 h-full">
-            {markers.map((marker) => (
-              <div
-                key={marker.label}
-                className="absolute flex items-center gap-3"
-                style={{
-                  left: marker.left,
-                  top: marker.top
-                }}
-              >
-                <span className="grid size-11 place-items-center rounded-full bg-signal-500/10 shadow-[0_0_0_8px_rgba(24,120,255,0.08)]">
-                  <span className="size-4 rounded-full bg-signal-500" />
-                </span>
-                <span className={`block max-w-[120px] text-base font-bold leading-tight sm:text-lg ${marker.tone}`}>{marker.label}</span>
-              </div>
-            ))}
-          </div>
+        <Reveal delay={0.12}>
+          <ProcessFlowDiagram />
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function ProcessFlowDiagram() {
+  const points = [
+    { label: "Clarity", detail: "shared problem map", x: 82, y: 86, labelX: 112, labelY: 74 },
+    { label: "Confidence", detail: "architecture decisions", x: 178, y: 158, labelX: 208, labelY: 146 },
+    { label: "Control", detail: "safe delivery path", x: 286, y: 242, labelX: 316, labelY: 230 },
+    { label: "Continuous Value", detail: "operating backlog", x: 232, y: 346, labelX: 72, labelY: 342 }
+  ];
+
+  return (
+    <div className="relative min-h-[430px] overflow-hidden rounded-[8px] border border-line bg-panel p-6">
+      <div className="contour-lines absolute inset-0 opacity-70" />
+      <svg className="relative z-10 h-[430px] w-full" viewBox="0 0 420 430" fill="none" role="img" aria-label="Risk reduction path from clarity to continuous value">
+        <path
+          className="flow-line bright"
+          d="M82 86 C104 126 132 142 178 158 S262 198 286 242 S282 312 232 346"
+          stroke="#1878ff"
+          strokeWidth="2.4"
+          strokeDasharray="5 8"
+          strokeLinecap="round"
+        />
+        {points.map((point) => (
+          <g key={point.label}>
+            <circle cx={point.x} cy={point.y} r="18" fill="rgba(24,120,255,0.10)" />
+            <circle cx={point.x} cy={point.y} r="7" fill="#1878ff" />
+            <text x={point.labelX} y={point.labelY} fill={point.label === "Clarity" || point.label === "Continuous Value" ? "#0c70ff" : "#061229"} fontSize="18" fontWeight="800">
+              {point.label}
+            </text>
+            <text x={point.labelX} y={point.labelY + 22} fill="#60708a" fontSize="11" fontWeight="700">
+              {point.detail}
+            </text>
+          </g>
+        ))}
+      </svg>
+    </div>
   );
 }
 
@@ -345,10 +364,13 @@ export function ImpactSection() {
       <Reveal className="rounded-[8px] border border-line bg-white p-6 sm:p-8">
         <div className="grid gap-8 lg:grid-cols-[320px_1fr]">
           <div>
-            <p className="eyebrow text-signal-600">Real Impact</p>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.02em] text-ink-950">Systems that drive real business outcomes.</h2>
-            <Link href="/insights" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-signal-600">
-              View case studies <ArrowRight className="size-4" />
+            <p className="eyebrow text-signal-600">Proof Before Logos</p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.02em] text-ink-950">Concrete technical assets you can judge before you commit.</h2>
+            <p className="mt-5 text-sm leading-7 text-ink-700">
+              BashGit Labs is young. Instead of borrowing credibility, we make the engineering process visible through practical outputs, review artifacts and reusable system patterns.
+            </p>
+            <Link href="/process" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-signal-600">
+              Review the operating model <ArrowRight className="size-4" />
             </Link>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
@@ -373,19 +395,19 @@ export function CtaBand() {
   return (
     <section className="section-shell pb-8">
       <Reveal className="overflow-hidden rounded-[8px] bg-ink-950 text-white shadow-soft">
-        <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_320px_1fr] lg:items-center">
+        <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-[0.95fr_300px_1.15fr] lg:items-center">
           <div>
-            <p className="eyebrow text-white/80">Let's Engineer What's Next</p>
+            <p className="eyebrow text-white/80">Start With The System</p>
             <h2 className="mt-4 max-w-[680px] text-4xl font-semibold leading-tight tracking-[-0.025em] sm:text-5xl">
-              Bring us the system you need to <span className="text-signal-400">build, fix or scale.</span>
+              Bring the product, platform or reliability problem you need to <span className="text-signal-400">solve properly.</span>
             </h2>
             <p className="mt-5 max-w-[560px] text-base leading-7 text-white/78">
-              We'll help you map the architecture, delivery path and reliability plan before the first line of code.
+              We will map the architecture, delivery path, risks and first useful increment before writing code or selling you a long engagement.
             </p>
           </div>
           <div className="space-y-5 lg:text-center">
             <ButtonLink href="/contact" variant="secondary" className="w-full sm:w-auto">
-              Start a technical conversation
+              Start a conversation
             </ButtonLink>
             <p className="text-sm text-white/70">
               Or email us at <a className="font-semibold text-white underline decoration-white/30 underline-offset-4" href="mailto:hello@bashgit.com">hello@bashgit.com</a>
@@ -414,6 +436,19 @@ export function InsightsList() {
 }
 
 export function Footer() {
+  const companyItems = [
+    { label: "About Us", href: "/about" },
+    { label: "Our Process", href: "/process" },
+    { label: "Insights", href: "/insights" }
+  ];
+  const serviceItems = [
+    { label: "Product Engineering", href: "/services" },
+    { label: "Backend & APIs", href: "/services" },
+    { label: "DevOps & Cloud", href: "/services" },
+    { label: "Reliability", href: "/services" }
+  ];
+  const technologyItems = techStack.slice(0, 5).map((item) => ({ label: item, href: "/expertise" }));
+
   return (
     <footer className="border-t border-line bg-white">
       <div className="mx-auto grid max-w-[1480px] gap-10 px-5 py-10 sm:px-8 lg:grid-cols-[1.4fr_0.7fr_0.9fr_0.9fr_0.8fr] lg:px-10">
@@ -422,14 +457,14 @@ export function Footer() {
           <p className="mt-5 max-w-[260px] text-sm leading-6 text-ink-700">Engineering reliable software systems that drive real business impact.</p>
           <p className="mt-10 text-sm text-ink-500">(c) 2026 BashGit Labs. All rights reserved.</p>
         </div>
-        <FooterColumn title="Company" items={["About Us", "Our Process", "Insights", "Careers"]} />
-        <FooterColumn title="Services" items={["Product Engineering", "Backend & APIs", "DevOps & Cloud", "Maintenance & Support"]} />
-        <FooterColumn title="Technologies" items={techStack.slice(0, 5)} />
+        <FooterColumn title="Company" items={companyItems} />
+        <FooterColumn title="Services" items={serviceItems} />
+        <TechnologyFooterColumn items={technologyItems} />
         <div>
           <h3 className="footer-heading">Let's Connect</h3>
           <div className="mt-6 flex gap-4">
-            <a aria-label="Professional network" href="#" className="text-ink-950 transition hover:text-signal-600"><Network className="size-6" /></a>
-            <a aria-label="Code repository" href="#" className="text-ink-950 transition hover:text-signal-600"><GitBranch className="size-6" /></a>
+            <Link aria-label="Contact BashGit Labs" href="/contact" className="text-ink-950 transition hover:text-signal-600"><Network className="size-6" /></Link>
+            <Link aria-label="Read technical insights" href="/insights" className="text-ink-950 transition hover:text-signal-600"><GitBranch className="size-6" /></Link>
             <a aria-label="Email" href="mailto:hello@bashgit.com" className="text-ink-950 transition hover:text-signal-600"><Mail className="size-6" /></a>
           </div>
         </div>
@@ -438,14 +473,14 @@ export function Footer() {
   );
 }
 
-function FooterColumn({ title, items }: { title: string; items: string[] }) {
+function FooterColumn({ title, items }: { title: string; items: Array<{ label: string; href: string }> }) {
   return (
     <div>
       <h3 className="footer-heading">{title}</h3>
       <ul className="mt-5 space-y-3">
         {items.map((item) => (
-          <li key={item}>
-            <a href="#" className="text-sm text-ink-700 transition hover:text-signal-600">{item}</a>
+          <li key={item.label}>
+            <Link href={item.href} className="text-sm text-ink-700 transition hover:text-signal-600">{item.label}</Link>
           </li>
         ))}
       </ul>
@@ -465,13 +500,22 @@ export function PageHero({
   return (
     <section className="relative overflow-hidden border-b border-line bg-white">
       <div className="hero-grid absolute inset-0 opacity-60" />
-      <div className="relative z-10 mx-auto grid max-w-[1480px] gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_0.8fr] lg:px-10 lg:py-24">
+      <div className="relative z-10 mx-auto grid max-w-[1480px] gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[0.95fr_0.65fr] lg:px-10 lg:py-24">
         <Reveal>
           <p className="eyebrow text-signal-600">{eyebrow}</p>
-          <h1 className="mt-5 max-w-[760px] text-5xl font-semibold leading-[1.02] tracking-[-0.035em] text-ink-950 sm:text-7xl">{title}</h1>
+          <h1 className="mt-5 max-w-[820px] text-5xl font-semibold leading-[1.02] text-ink-950 sm:text-7xl">{title}</h1>
         </Reveal>
         <Reveal delay={0.08} className="flex items-end">
-          <p className="max-w-[620px] text-lg leading-8 text-ink-700">{copy}</p>
+          <div className="w-full border-l border-line pl-6">
+            <p className="max-w-[620px] text-lg leading-8 text-ink-700">{copy}</p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {["Architecture", "Delivery", "Reliability"].map((item) => (
+                <span key={item} className="rounded-[5px] border border-line bg-white px-3 py-2 text-xs font-bold text-ink-700 shadow-[0_8px_22px_rgba(6,18,41,0.04)]">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>
@@ -495,31 +539,27 @@ export function ContactPanel() {
           </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <form className="grid gap-5 rounded-[8px] border border-line bg-white p-6 sm:p-8">
-            <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Name" placeholder="Your name" />
-              <Field label="Work email" placeholder="you@company.com" type="email" />
-            </div>
-            <Field label="Company" placeholder="Company name" />
-            <label className="block">
-              <span className="form-label">What should we help with?</span>
-              <textarea className="form-field min-h-[170px] resize-y py-3" placeholder="Share the product, platform or reliability challenge." />
-            </label>
-            <button type="submit" className="h-12 rounded-[6px] bg-ink-950 px-5 text-sm font-semibold text-white transition hover:bg-ink-800">
-              Send inquiry
-            </button>
-          </form>
+          <ContactForm />
         </Reveal>
       </div>
     </section>
   );
 }
 
-function Field({ label, placeholder, type = "text" }: { label: string; placeholder: string; type?: string }) {
+function TechnologyFooterColumn({ items }: { items: Array<{ label: string; href: string }> }) {
   return (
-    <label className="block">
-      <span className="form-label">{label}</span>
-      <input className="form-field" type={type} placeholder={placeholder} />
-    </label>
+    <div>
+      <h3 className="footer-heading">Technologies</h3>
+      <ul className="mt-5 space-y-3">
+        {items.map((item) => (
+          <li key={item.label}>
+            <Link href={item.href} className="inline-flex items-center gap-2 text-sm text-ink-700 transition hover:text-signal-600">
+              <TechIcon tech={item.label} />
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
