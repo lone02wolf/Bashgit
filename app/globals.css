@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --ink: #061229;
+  --signal: #1878ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--ink);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(24, 120, 255, 0.16);
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-[1480px] px-5 py-12 sm:px-8 sm:py-16 lg:px-10 lg:py-16;
+  }
+
+  .eyebrow {
+    @apply text-xs font-extrabold uppercase tracking-[0.13em] text-ink-950;
+  }
+
+  .eyebrow span {
+    @apply ml-3 inline-block h-px w-6 translate-y-[-3px] bg-signal-600;
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold leading-[1.08] text-ink-950 sm:text-[2.75rem];
+  }
+
+  .section-title span {
+    @apply text-signal-600;
+  }
+
+  .section-copy {
+    @apply text-base leading-8 text-ink-700;
+  }
+
+  .footer-heading {
+    @apply text-xs font-extrabold uppercase tracking-[0.13em] text-ink-950;
+  }
+
+  .form-label {
+    @apply mb-2 block text-sm font-bold text-ink-950;
+  }
+
+  .form-field {
+    @apply h-12 w-full rounded-[6px] border border-line bg-white px-4 text-sm text-ink-950 outline-none transition placeholder:text-ink-500 focus:border-signal-500 focus:ring-4 focus:ring-signal-500/10;
+  }
+}
+
+.hero-grid,
+.diagram-grid {
+  background-image:
+    linear-gradient(rgba(96, 112, 138, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 112, 138, 0.08) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.hero-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(24, 120, 255, 0.08), transparent 24%),
+    radial-gradient(circle at 82% 36%, rgba(6, 18, 41, 0.05), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), #fff 92%);
+}
+
+.layer-plate {
+  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+}
+
+.flow-line {
+  stroke-dashoffset: 120;
+  animation: flow 9s linear infinite;
+}
+
+.flow-line.slow {
+  animation-duration: 13s;
+}
+
+.flow-line.bright {
+  filter: drop-shadow(0 0 8px rgba(24, 120, 255, 0.28));
+}
+
+.topology-lines,
+.contour-lines {
+  background-image:
+    radial-gradient(ellipse at 22% 30%, transparent 0 34%, rgba(255, 255, 255, 0.18) 34.4% 34.8%, transparent 35.2%),
+    radial-gradient(ellipse at 68% 72%, transparent 0 30%, rgba(255, 255, 255, 0.14) 30.4% 30.8%, transparent 31.2%),
+    repeating-radial-gradient(ellipse at 58% 42%, transparent 0 18px, rgba(255, 255, 255, 0.1) 19px 20px, transparent 21px 36px);
+}
+
+.contour-lines {
+  background-image:
+    repeating-radial-gradient(ellipse at 20% 20%, transparent 0 20px, rgba(24, 120, 255, 0.13) 21px 22px, transparent 24px 42px),
+    repeating-radial-gradient(ellipse at 74% 60%, transparent 0 22px, rgba(96, 112, 138, 0.12) 23px 24px, transparent 26px 44px);
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
