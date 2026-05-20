@@ -27,6 +27,10 @@ function getRateLimitStore() {
 }
 
 export async function POST(request: Request) {
+  if (!isAllowedOrigin(request)) {
+    return NextResponse.json({ error: "This request is not allowed." }, { status: 403 });
+  }
+
   let body: unknown;
 
   try {
@@ -107,6 +111,35 @@ function getClientIp(request: Request) {
   }
 
   return request.headers.get("x-real-ip") || "unknown";
+}
+
+function isAllowedOrigin(request: Request) {
+  const origin = request.headers.get("origin");
+
+  if (!origin) {
+    return true;
+  }
+
+  const configuredOrigins = (process.env.CONTACT_ALLOWED_ORIGINS || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+  if (configuredOrigins.includes(origin)) {
+    return true;
+  }
+
+  const host = request.headers.get("x-forwarded-host") || request.headers.get("host");
+
+  if (!host) {
+    return false;
+  }
+
+  try {
+    return new URL(origin).host === host;
+  } catch {
+    return false;
+  }
 }
 
 function hashValue(value: string) {

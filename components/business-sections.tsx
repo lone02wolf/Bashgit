@@ -129,7 +129,7 @@ export function ExpertiseOperatingModel() {
             <Workflow className="size-10 text-signal-600" strokeWidth={1.5} />
             <p className="eyebrow mt-8 text-signal-600">How Expertise Connects</p>
             <h2 className="mt-4 text-4xl font-semibold leading-tight text-ink-950">
-              We don't treat frontend, backend and cloud as separate conversations.
+              We don&apos;t treat frontend, backend and cloud as separate conversations.
             </h2>
             <p className="mt-5 text-base leading-8 text-ink-700">
               The strongest systems are designed as one operating model: product behavior, application architecture, delivery flow and production feedback working together.
@@ -260,7 +260,7 @@ export function TechnologySection() {
         <div className="grid gap-8 lg:grid-cols-[320px_1fr] lg:items-center">
           <div>
             <Gauge className="size-9 text-ink-900" strokeWidth={1.5} />
-            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.02em] text-ink-950">Modern tools, conservative engineering judgement.</h2>
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.02em] text-ink-950">Modern tools, conservative engineering judgment.</h2>
           </div>
           <div className="flex flex-wrap gap-3">
             {techStack.map((tech) => (

@@ -35,6 +35,7 @@ The app writes with the service role key from the server only, so no public inse
 SUPABASE_URL=
 SUPABASE_SERVICE_ROLE_KEY=
 CONTACT_HASH_SALT=
+CONTACT_ALLOWED_ORIGINS=https://bashgit.com,https://www.bashgit.com
 ```
 
 Without Supabase variables, development submissions are appended to `data/inquiries.jsonl`.

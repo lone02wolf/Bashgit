@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import type React from "react";
-import { processSteps } from "@/data/site";
 
 type IconProps = {
   className?: string;

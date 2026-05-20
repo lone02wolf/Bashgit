@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { AlertCircle, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import type React from "react";
 
@@ -28,15 +28,15 @@ const initialState: FormState = {
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
-  const [startedAt, setStartedAt] = useState(Date.now());
+  const startedAtRef = useRef(0);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [feedback, setFeedback] = useState("");
 
-  useEffect(() => {
-    setStartedAt(Date.now());
-  }, []);
-
   function update(field: keyof FormState, value: string) {
+    if (!startedAtRef.current) {
+      startedAtRef.current = Date.now();
+    }
+
     setForm((current) => ({ ...current, [field]: value }));
   }
 
@@ -51,7 +51,7 @@ export function ContactForm() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ ...form, startedAt })
+        body: JSON.stringify({ ...form, startedAt: startedAtRef.current || Date.now() })
       });
 
       const result = (await response.json()) as { error?: string };
@@ -63,7 +63,7 @@ export function ContactForm() {
       setStatus("sent");
       setFeedback("Thanks. Your message was sent and stored. We will reply within one business day.");
       setForm(initialState);
-      setStartedAt(Date.now());
+      startedAtRef.current = Date.now();
     } catch (error) {
       setStatus("error");
       setFeedback(error instanceof Error ? error.message : "We could not send your inquiry. Please try again.");

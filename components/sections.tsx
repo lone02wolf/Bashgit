@@ -191,7 +191,7 @@ export function PhilosophyBand() {
           <div className="relative z-10">
             <p className="eyebrow text-white/80">Our Philosophy</p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-[-0.025em] sm:text-5xl">
-              We don't just ship features. We build systems that can <span className="text-signal-400">survive production.</span>
+              We don&apos;t just ship features. We build systems that can <span className="text-signal-400">survive production.</span>
             </h2>
           </div>
           <div className="relative z-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
@@ -461,7 +461,7 @@ export function Footer() {
         <FooterColumn title="Services" items={serviceItems} />
         <TechnologyFooterColumn items={technologyItems} />
         <div>
-          <h3 className="footer-heading">Let's Connect</h3>
+          <h3 className="footer-heading">Let&apos;s Connect</h3>
           <div className="mt-6 flex gap-4">
             <Link aria-label="Contact BashGit Labs" href="/contact" className="text-ink-950 transition hover:text-signal-600"><Network className="size-6" /></Link>
             <Link aria-label="Read technical insights" href="/insights" className="text-ink-950 transition hover:text-signal-600"><GitBranch className="size-6" /></Link>
