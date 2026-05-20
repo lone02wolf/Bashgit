@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { AlertCircle, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import type React from "react";
 
 type FormState = {
@@ -12,6 +12,7 @@ type FormState = {
   budget: string;
   timeline: string;
   message: string;
+  website: string;
 };
 
 const initialState: FormState = {
@@ -21,44 +22,61 @@ const initialState: FormState = {
   workType: "Architecture review",
   budget: "Not sure yet",
   timeline: "This month",
-  message: ""
+  message: "",
+  website: ""
 };
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
-  const [submitted, setSubmitted] = useState(false);
+  const [startedAt, setStartedAt] = useState(Date.now());
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [feedback, setFeedback] = useState("");
 
-  const mailto = useMemo(() => {
-    const subject = encodeURIComponent(`BashGit Labs inquiry from ${form.company || form.name || "new lead"}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${form.name}`,
-        `Work email: ${form.email}`,
-        `Company: ${form.company}`,
-        `Need: ${form.workType}`,
-        `Budget: ${form.budget}`,
-        `Timeline: ${form.timeline}`,
-        "",
-        "System challenge:",
-        form.message
-      ].join("\n")
-    );
-
-    return `mailto:hello@bashgit.com?subject=${subject}&body=${body}`;
-  }, [form]);
+  useEffect(() => {
+    setStartedAt(Date.now());
+  }, []);
 
   function update(field: keyof FormState, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
   }
 
-  function submit(event: React.FormEvent<HTMLFormElement>) {
+  async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
-    window.location.href = mailto;
+    setStatus("sending");
+    setFeedback("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ ...form, startedAt })
+      });
+
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error || "We could not send your inquiry. Please try again.");
+      }
+
+      setStatus("sent");
+      setFeedback("Thanks. Your message was sent and stored. We will reply within one business day.");
+      setForm(initialState);
+      setStartedAt(Date.now());
+    } catch (error) {
+      setStatus("error");
+      setFeedback(error instanceof Error ? error.message : "We could not send your inquiry. Please try again.");
+    }
   }
 
   return (
     <form onSubmit={submit} className="grid gap-5 rounded-[8px] border border-line bg-white p-6 shadow-soft sm:p-8">
+      <label className="hidden" aria-hidden="true">
+        Website
+        <input tabIndex={-1} autoComplete="off" value={form.website} onChange={(event) => update("website", event.target.value)} />
+      </label>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Name" value={form.name} onChange={(value) => update("name", value)} placeholder="Your name" required />
         <Field label="Work email" value={form.email} onChange={(value) => update("email", value)} placeholder="you@company.com" type="email" required />
@@ -88,28 +106,34 @@ export function ContactForm() {
       </div>
 
       <label className="block">
-        <span className="form-label">What system problem should we help with?</span>
+        <span className="form-label">What should we help you move forward?</span>
         <textarea
           className="form-field min-h-[170px] resize-y py-3"
           value={form.message}
           onChange={(event) => update("message", event.target.value)}
-          placeholder="Share the product, platform, backend or reliability challenge. Useful details: current stack, users, production pain, timeline and what success would look like."
+          minLength={30}
+          maxLength={2400}
+          placeholder="Share what you are building, what is not working as well as it should and what a good outcome would look like."
           required
         />
       </label>
 
       <div className="rounded-[6px] border border-line bg-panel p-4 text-sm leading-6 text-ink-700">
-        <strong className="text-ink-950">First step:</strong> a focused technical review. We will respond with the highest-risk questions, a suggested path and whether BashGit Labs is the right fit.
+        <strong className="text-ink-950">No attachments here:</strong> to keep submissions safe, we do not accept files through this form. If a document is useful, we will request it through a secure link.
       </div>
 
-      <button type="submit" className="inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-ink-950 px-5 text-sm font-semibold text-white transition hover:bg-ink-800">
-        Send inquiry <ArrowUpRight className="size-4" />
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-ink-950 px-5 text-sm font-semibold text-white transition hover:bg-ink-800 disabled:cursor-not-allowed disabled:bg-ink-500"
+      >
+        {status === "sending" ? "Sending..." : "Send inquiry"} <ArrowUpRight className="size-4" />
       </button>
 
-      {submitted ? (
-        <p className="flex items-center gap-2 text-sm font-semibold text-ink-950">
-          <CheckCircle2 className="size-4 text-signal-600" />
-          Opening your email client with the inquiry prepared.
+      {feedback ? (
+        <p className={`flex items-center gap-2 text-sm font-semibold ${status === "error" ? "text-red-700" : "text-ink-950"}`} role="status">
+          {status === "error" ? <AlertCircle className="size-4" /> : <CheckCircle2 className="size-4 text-signal-600" />}
+          {feedback}
         </p>
       ) : null}
     </form>

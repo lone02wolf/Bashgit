@@ -8,3 +8,5 @@ coverage/
 .DS_Store
 *.log
 .playwright-mcp/
+data/inquiries.jsonl
+tsconfig.tsbuildinfo

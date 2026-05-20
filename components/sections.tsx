@@ -528,9 +528,9 @@ export function ContactPanel() {
       <div className="grid gap-8 lg:grid-cols-[0.75fr_1fr]">
         <Reveal className="rounded-[8px] bg-ink-950 p-8 text-white sm:p-10">
           <MessageSquare className="size-10 text-signal-400" strokeWidth={1.5} />
-          <h2 className="mt-8 text-4xl font-semibold tracking-[-0.025em]">Start with the architecture conversation.</h2>
+          <h2 className="mt-8 text-4xl font-semibold tracking-[-0.025em]">Tell us what you want to build.</h2>
           <p className="mt-5 text-base leading-8 text-white/76">
-            Tell us what you are building, where the current system is under pressure and what outcomes matter most.
+            Share the idea, the current stage and what would make the work feel like a clear win for your team.
           </p>
           <div className="mt-10 space-y-4 text-sm text-white/80">
             <p><strong className="text-white">Email:</strong> hello@bashgit.com</p>

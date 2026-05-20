@@ -2,19 +2,34 @@ export function LogoMark({ className = "" }: { className?: string }) {
   return (
     <svg
       aria-hidden="true"
-      viewBox="0 0 40 40"
+      viewBox="0 0 48 48"
       className={`size-8 text-ink-950 ${className}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M20 4.2 32.8 11.6v14.8L20 33.8 7.2 26.4V11.6L20 4.2Z" stroke="currentColor" strokeWidth="3.2" strokeLinejoin="round" />
-      <rect x="16" y="1.8" width="8" height="8" rx="1.8" fill="currentColor" />
-      <rect x="28.2" y="8.8" width="8" height="8" rx="1.8" fill="currentColor" />
-      <rect x="28.2" y="23.2" width="8" height="8" rx="1.8" fill="currentColor" />
-      <rect x="16" y="30.2" width="8" height="8" rx="1.8" fill="currentColor" />
-      <rect x="3.8" y="23.2" width="8" height="8" rx="1.8" fill="currentColor" />
-      <rect x="3.8" y="8.8" width="8" height="8" rx="1.8" fill="currentColor" />
-      <circle cx="20" cy="20" r="3.2" fill="white" />
+      <rect x="5" y="5" width="38" height="38" rx="12" fill="currentColor" />
+      <path
+        d="M16 15.5 23.5 23 16 30.5"
+        stroke="white"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M24 32h8"
+        stroke="white"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M27.5 16.5h2.75A6.75 6.75 0 0 1 37 23.25v2.25"
+        stroke="#4D9BFF"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <circle cx="27.5" cy="16.5" r="3.5" fill="#4D9BFF" />
+      <circle cx="37" cy="26.5" r="3.5" fill="#4D9BFF" />
+      <circle cx="37" cy="26.5" r="1.35" fill="white" />
     </svg>
   );
 }
@@ -22,8 +37,11 @@ export function LogoMark({ className = "" }: { className?: string }) {
 export function Logo() {
   return (
     <span className="flex items-center gap-3">
-      <LogoMark />
-      <span className="text-xl font-semibold text-ink-950">BashGit Labs</span>
+      <LogoMark className="size-9" />
+      <span className="flex items-baseline gap-1.5 text-ink-950">
+        <span className="text-xl font-extrabold tracking-[-0.035em]">BashGit</span>
+        <span className="text-lg font-semibold tracking-[-0.025em] text-ink-700">Labs</span>
+      </span>
     </span>
   );
 }
