@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 };
 
 const nextSteps = [
-  "We review the product, platform or reliability context you share.",
-  "We identify the highest-risk architecture and delivery questions.",
-  "We propose a focused path: discovery, build engagement or reliability retainer."
+  "We review the ambition, workflow, product or platform context you share.",
+  "We identify the highest-leverage architecture, AI, delivery and reliability questions.",
+  "We propose a focused next move: discovery, build engagement, modernization or reliability retainer."
 ];
 
 export default function ContactPage() {
@@ -17,15 +17,16 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title={<>Bring the system challenge. We will map the path forward.</>}
-        copy="Start a practical conversation about the product, platform, backend or reliability challenge you want to solve."
+        title={<>Bring the ambition. We will map the system it needs.</>}
+        copy="Start a practical conversation about the product, AI workflow, platform or reliability challenge you want to turn into a durable operating advantage."
+        variant="dark"
       />
       <ContactPanel />
       <section className="section-shell pt-0">
         <div className="grid gap-10 lg:grid-cols-[360px_1fr]">
           <Reveal>
             <p className="eyebrow text-signal-600">What Happens Next</p>
-            <h2 className="section-title mt-4">A practical first conversation, not a sales performance.</h2>
+            <h2 className="section-title mt-4">A useful first conversation, not a sales performance.</h2>
           </Reveal>
           <Stagger className="grid gap-4 sm:grid-cols-3">
             {nextSteps.map((step, index) => (

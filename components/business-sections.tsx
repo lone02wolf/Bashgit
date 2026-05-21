@@ -17,9 +17,9 @@ export function EngagementModels() {
       <div className="grid gap-10 lg:grid-cols-[360px_1fr]">
         <Reveal>
           <p className="eyebrow text-signal-600">Engagement Models</p>
-          <h2 className="section-title mt-4">Built for teams that need senior execution, not slideware.</h2>
+          <h2 className="section-title mt-4">Built for teams that need strategic clarity and senior execution.</h2>
           <p className="section-copy mt-5">
-            We shape each engagement around a measurable system outcome: a product shipped, a platform stabilized or a reliability layer made visible.
+            We shape each engagement around a business-critical system outcome: a product launched, an AI workflow governed, a platform stabilized or reliability made visible.
           </p>
         </Reveal>
         <Stagger className="grid gap-4">
@@ -43,24 +43,24 @@ export function EngagementModels() {
 
 export function LabSystemsSection() {
   return (
-    <section className="section-shell border-y border-line bg-panel/60">
+    <section className="section-shell bg-ink-950 text-white">
       <div className="grid gap-10 lg:grid-cols-[390px_1fr]">
         <Reveal>
-          <p className="eyebrow text-signal-600">BashGit Labs Systems</p>
-          <h2 className="section-title mt-4">Service work today, reusable engineering systems tomorrow.</h2>
-          <p className="section-copy mt-5">
-            BashGit Labs is being built as more than a project shop. Each engagement sharpens reusable patterns for product launches, cloud delivery and reliability operations.
+          <p className="eyebrow text-signal-300">BashGit Labs Systems</p>
+          <h2 className="mt-4 text-3xl font-semibold leading-[1.08] text-white sm:text-[2.75rem]">Every engagement should improve the operating model.</h2>
+          <p className="mt-5 text-base leading-8 text-white/72">
+            We use client work to sharpen reusable patterns for launches, AI-enabled operations, cloud delivery and reliability, so delivery becomes more disciplined over time.
           </p>
         </Reveal>
         <Stagger className="grid gap-4 md:grid-cols-3">
           {labSystems.map((system) => {
             const Icon = system.icon;
             return (
-              <StaggerItem key={system.title} className="rounded-[8px] border border-line bg-white p-7">
-                <Icon className="mb-6 size-9 text-ink-900" strokeWidth={1.5} />
-                <h3 className="text-xl font-semibold leading-tight text-ink-950">{system.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-ink-700">{system.copy}</p>
-                <p className="mt-5 border-t border-line pt-4 text-sm font-bold leading-6 text-ink-950">{system.outcome}</p>
+              <StaggerItem key={system.title} className="rounded-[8px] border border-white/12 bg-white/[0.06] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
+                <Icon className="mb-6 size-9 text-signal-300" strokeWidth={1.5} />
+                <h3 className="text-xl font-semibold leading-tight text-white">{system.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-white/72">{system.copy}</p>
+                <p className="mt-5 border-t border-white/12 pt-4 text-sm font-bold leading-6 text-white">{system.outcome}</p>
               </StaggerItem>
             );
           })}
@@ -75,9 +75,9 @@ export function ExpertiseMatrix() {
     <section className="section-shell" id="expertise-map">
       <Reveal className="mb-10 max-w-[760px]">
         <p className="eyebrow text-signal-600">Expertise Map</p>
-        <h2 className="section-title mt-4">The practical layers behind modern product infrastructure.</h2>
+        <h2 className="section-title mt-4">The practical layers behind modern product and AI infrastructure.</h2>
       </Reveal>
-      <Stagger className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <Stagger className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {expertiseAreas.map((area) => (
           <StaggerItem key={area.title} className="rounded-[8px] border border-line bg-white p-7">
             <Layers3 className="mb-6 size-8 text-ink-800" strokeWidth={1.5} />
@@ -101,8 +101,13 @@ export function ExpertiseOperatingModel() {
   const bands = [
     {
       title: "Product surfaces",
-      copy: "Interfaces, dashboards and workflows shaped around the people using the system every day.",
-      signal: "Usability, speed, adoption"
+      copy: "Interfaces, dashboards and workflows shaped around the decisions people need to make every day.",
+      signal: "Adoption, clarity, throughput"
+    },
+    {
+      title: "Intelligence layer",
+      copy: "Retrieval, AI workflows, evaluation and human review designed around business judgment and risk.",
+      signal: "Automation, control, confidence"
     },
     {
       title: "Application core",
@@ -110,29 +115,24 @@ export function ExpertiseOperatingModel() {
       signal: "Contracts, tests, maintainability"
     },
     {
-      title: "Platform foundation",
-      copy: "Cloud, containers, release pipelines and environments that make delivery repeatable.",
-      signal: "CI/CD, IaC, deployment confidence"
-    },
-    {
-      title: "Reliability layer",
-      copy: "Monitoring, logging, alerting and recovery habits that keep production understandable.",
-      signal: "Observability, uptime, runbooks"
+      title: "Operating foundation",
+      copy: "Cloud, delivery pipelines, observability and environments that make the system repeatable and visible.",
+      signal: "Reliability, cost, ownership"
     }
   ];
 
   return (
-    <section className="section-shell py-0">
+    <section className="section-shell pt-10 lg:pt-12">
       <Reveal className="overflow-hidden rounded-[8px] border border-line bg-white shadow-soft">
         <div className="grid gap-0 lg:grid-cols-[360px_1fr]">
           <div className="border-b border-line bg-panel/70 p-7 sm:p-9 lg:border-b-0 lg:border-r">
             <Workflow className="size-10 text-signal-600" strokeWidth={1.5} />
             <p className="eyebrow mt-8 text-signal-600">How Expertise Connects</p>
             <h2 className="mt-4 text-4xl font-semibold leading-tight text-ink-950">
-              We don&apos;t treat frontend, backend and cloud as separate conversations.
+              We do not treat product, AI, backend and cloud as separate conversations.
             </h2>
             <p className="mt-5 text-base leading-8 text-ink-700">
-              The strongest systems are designed as one operating model: product behavior, application architecture, delivery flow and production feedback working together.
+              The strongest systems are designed as one operating model: product behavior, intelligence, application architecture, delivery flow and production feedback working together.
             </p>
           </div>
           <Stagger className="grid sm:grid-cols-2">
@@ -153,25 +153,25 @@ export function ExpertiseOperatingModel() {
 
 export function ExpertiseProof() {
   const questions = [
-    "Where should product workflows end and backend policy begin?",
-    "Which services need stable contracts before the next feature cycle?",
-    "What belongs in Kubernetes, what belongs in managed cloud and what should stay simple?",
-    "Which signals would explain production behavior before customers report it?"
+    "Which business decisions should the software make easier, faster or safer?",
+    "Where does AI create leverage, and where would it introduce unnecessary risk?",
+    "Which services, data contracts and workflows must be stable before the next product cycle?",
+    "Which signals would explain production behavior before customers or operators report it?"
   ];
 
   return (
-    <section className="section-shell border-y border-line bg-panel/60">
+    <section className="section-shell bg-ink-950 text-white">
       <div className="grid gap-10 lg:grid-cols-[390px_1fr]">
         <Reveal>
-          <Route className="size-10 text-ink-900" strokeWidth={1.5} />
-          <p className="eyebrow mt-7 text-signal-600">Decision Quality</p>
-          <h2 className="section-title mt-4">Expertise shows up in the questions we make visible early.</h2>
+          <Route className="size-10 text-signal-400" strokeWidth={1.5} />
+          <p className="eyebrow mt-7 text-signal-400">Decision Quality</p>
+          <h2 className="section-title mt-4 text-white">Senior work shows up in the questions made visible early.</h2>
         </Reveal>
         <Stagger className="grid gap-4 sm:grid-cols-2">
           {questions.map((question, index) => (
-            <StaggerItem key={question} className="rounded-[8px] border border-line bg-white p-7">
-              <span className="text-xs font-extrabold uppercase tracking-[0.14em] text-signal-600">Question 0{index + 1}</span>
-              <p className="mt-5 text-lg font-semibold leading-8 text-ink-950">{question}</p>
+            <StaggerItem key={question} className="rounded-[8px] border border-white/10 bg-white/[0.04] p-7 shadow-[0_18px_50px_rgba(0,0,0,0.18)]">
+              <span className="text-xs font-extrabold uppercase tracking-[0.14em] text-signal-300">Question 0{index + 1}</span>
+              <p className="mt-5 text-lg font-semibold leading-8 text-white">{question}</p>
             </StaggerItem>
           ))}
         </Stagger>
@@ -188,10 +188,10 @@ export function ServiceAssurance() {
           <div>
             <ShieldCheck className="size-10 text-signal-400" strokeWidth={1.5} />
             <h2 className="mt-6 text-4xl font-semibold leading-tight tracking-[-0.025em]">
-              Every engagement leaves the system easier to own.
+              Every engagement should leave the system easier to own.
             </h2>
             <p className="mt-5 text-base leading-7 text-white/76">
-              We care about what happens after launch: documentation, release confidence, observability and the ability for your team to move without asking permission.
+              We care about what happens after launch: documentation, evaluation, release confidence, observability and the ability for your team to keep moving without dependency on us.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -213,9 +213,9 @@ export function ProcessDeliverables() {
       <div className="grid gap-10 lg:grid-cols-[360px_1fr]">
         <Reveal>
           <p className="eyebrow text-signal-600">What You Receive</p>
-          <h2 className="section-title mt-4">Concrete outputs at every stage.</h2>
+          <h2 className="section-title mt-4">Concrete strategy and engineering outputs at every stage.</h2>
           <p className="section-copy mt-5">
-            The process is deliberately plain: understand the system, make the plan visible, ship controlled increments and improve operations with evidence.
+            The process is deliberately explicit: understand the business system, make the plan visible, ship controlled increments and improve operations with evidence.
           </p>
         </Reveal>
         <Stagger className="grid gap-4 sm:grid-cols-2">
@@ -238,7 +238,7 @@ export function OperatingStandards() {
       <div className="grid gap-10 lg:grid-cols-[420px_1fr]">
         <Reveal>
           <p className="eyebrow text-signal-600">Operating Standards</p>
-          <h2 className="section-title mt-4">The habits that make consulting work compound.</h2>
+          <h2 className="section-title mt-4">The habits that turn consulting work into institutional leverage.</h2>
         </Reveal>
         <Stagger className="grid gap-4">
           {operatingStandards.map((standard) => (
@@ -255,12 +255,12 @@ export function OperatingStandards() {
 
 export function TechnologySection() {
   return (
-    <section className="section-shell py-0">
+    <section className="section-shell">
       <Reveal className="rounded-[8px] border border-line bg-white p-7 sm:p-8">
         <div className="grid gap-8 lg:grid-cols-[320px_1fr] lg:items-center">
           <div>
             <Gauge className="size-9 text-ink-900" strokeWidth={1.5} />
-            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.02em] text-ink-950">Modern tools, conservative engineering judgment.</h2>
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.02em] text-ink-950">Modern tools, disciplined technical judgment.</h2>
           </div>
           <div className="flex flex-wrap gap-3">
             {techStack.map((tech) => (
@@ -283,16 +283,16 @@ export function InsightEditorial() {
         <Reveal className="rounded-[8px] bg-ink-950 p-8 text-white sm:p-10">
           <p className="eyebrow text-white/80">Field Notes</p>
           <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-[-0.025em]">
-            We write for operators, founders and engineering leads making real tradeoffs.
+            We write for founders, operators and engineering leaders making high-consequence technical tradeoffs.
           </h2>
           <p className="mt-6 text-base leading-8 text-white/76">
-            Expect practical notes on architecture boundaries, service reliability, cloud cost, release strategy and the human side of maintaining software systems.
+            Expect practical notes on architecture boundaries, AI operating discipline, service reliability, cloud cost, release strategy and the human side of maintaining software systems.
           </p>
         </Reveal>
         <Reveal delay={0.08} className="rounded-[8px] border border-line bg-white p-8 sm:p-10">
           <p className="eyebrow text-signal-600">Editorial Focus</p>
           <div className="mt-7 space-y-5">
-            {["Architecture decisions", "Production readiness", "Platform engineering", "Technical leadership"].map((item) => (
+            {["AI operating discipline", "Architecture decisions", "Production readiness", "Technical leadership"].map((item) => (
               <div key={item} className="flex items-center justify-between border-b border-line pb-4">
                 <span className="text-lg font-semibold text-ink-950">{item}</span>
                 <ArrowRight className="size-5 text-signal-600" />

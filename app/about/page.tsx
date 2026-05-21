@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 };
 
 const commitments = [
-  "Founder-led engineering stays close to the work.",
-  "Architecture decisions are written down and revisited.",
-  "Production realities shape product decisions early.",
-  "Systems are designed for the people who will maintain them."
+  "Founder-led strategy stays close to implementation.",
+  "Important decisions are written down, challenged and revisited.",
+  "AI and automation are introduced only where they improve the operating model.",
+  "Systems are designed for the people who will own them after launch."
 ];
 
 export default function AboutPage() {
@@ -19,14 +19,15 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About BashGit Labs"
-        title={<>A young engineering company built for systems that need to last.</>}
-        copy="BashGit Labs is a founder-led software and cloud engineering studio built around architecture discipline, careful execution and production systems that improve over time."
+        title={<>A focused engineering company for systems that need strategic weight.</>}
+        copy="BashGit Labs is a founder-led software, AI and cloud engineering studio built around strategic clarity, careful execution and production systems that improve over time."
+        variant="dark"
       />
       <section className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr]">
           <Reveal>
             <p className="eyebrow text-signal-600">How We Work</p>
-            <h2 className="section-title mt-4">We bring architecture discipline without slowing product momentum.</h2>
+            <h2 className="section-title mt-4">We bring strategic discipline without slowing product momentum.</h2>
           </Reveal>
           <Stagger className="grid gap-4 sm:grid-cols-2">
             {commitments.map((item, index) => (

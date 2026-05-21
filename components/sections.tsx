@@ -27,18 +27,18 @@ export function Hero() {
         <div className="relative z-10 flex min-w-0 flex-col justify-center">
           <Reveal>
             <p className="eyebrow">
-              Founder-led Software & Cloud Engineering <span />
+              Strategy-Led Software, AI & Cloud Engineering <span />
             </p>
             <h1 className="mt-5 max-w-[680px] text-[2.6rem] font-semibold leading-[1.02] text-ink-950 sm:text-[3.75rem] sm:leading-[1] lg:text-[4.25rem] xl:text-[4.7rem]">
-              Reliable software platforms for teams that cannot afford failure.
+              We turn ambitious product ideas into reliable operating systems.
             </h1>
             <p className="mt-7 max-w-[540px] text-base leading-8 text-ink-700 sm:text-lg">
-              BashGit Labs helps B2B SaaS founders, product teams and infrastructure-heavy businesses design, build and operate scalable applications, backend systems and cloud delivery foundations.
+              BashGit Labs helps founders and product teams design, build and operate software platforms, AI-enabled workflows and cloud foundations that can carry real business pressure.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
               <ButtonLink href="/contact">Start a conversation</ButtonLink>
               <ButtonLink href="/expertise" variant="ghost" arrow="down">
-                See technical capabilities
+                See how we think
               </ButtonLink>
             </div>
           </Reveal>
@@ -70,12 +70,12 @@ export function OperatingLayer() {
       <div className="grid gap-8 lg:grid-cols-[330px_1fr] lg:items-center">
         <Reveal>
           <p className="eyebrow text-signal-600">The BashGit Operating Layer</p>
-          <h2 className="section-title mt-4">We build the operating layer that keeps your product <span>alive.</span></h2>
+          <h2 className="section-title mt-4">We build the layer between strategy and <span>reliable execution.</span></h2>
           <p className="section-copy mt-5">
-            Features come and go. The operating layer is what keeps your product reliable, secure and ready for growth.
+            Modern products need more than screens and code. They need data, automation, delivery, observability and ownership working as one system.
           </p>
           <Link href="/process" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-signal-600">
-            How we think about systems <ArrowRight className="size-4" />
+            Review the operating model <ArrowRight className="size-4" />
           </Link>
         </Reveal>
 
@@ -104,7 +104,7 @@ export function OperatingLayer() {
           </div>
           <div className="absolute right-0 top-[58%] hidden translate-x-2 items-center gap-2 text-sm font-extrabold text-signal-600 xl:flex">
             <span className="block w-7 border-t border-dashed border-signal-500" />
-            Business<br />Outcomes
+            Strategic<br />Outcomes
           </div>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-6 rounded-[6px] border border-line bg-panel px-5 py-4 text-sm font-medium text-ink-700 lg:mr-0">
             <span>Security</span>
@@ -186,19 +186,19 @@ export function PhilosophyBand() {
   return (
     <section className="section-shell py-0">
       <Reveal className="overflow-hidden rounded-[8px] bg-ink-950 text-white shadow-soft">
-        <div className="relative grid gap-8 p-7 sm:p-10 lg:grid-cols-[330px_1fr] lg:p-12">
+        <div className="relative grid gap-10 p-7 sm:p-10 lg:p-12">
           <div className="topology-lines absolute inset-0 opacity-35" />
-          <div className="relative z-10">
+          <div className="relative z-10 w-full">
             <p className="eyebrow text-white/80">Our Philosophy</p>
-            <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-[-0.025em] sm:text-5xl">
-              We don&apos;t just ship features. We build systems that can <span className="text-signal-400">survive production.</span>
+            <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-[-0.025em] sm:text-5xl lg:text-[3.4rem]">
+              We do not chase features. We build systems that create <span className="text-signal-400">operating leverage.</span>
             </h2>
           </div>
-          <div className="relative z-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
+          <div className="relative z-10 grid gap-6 border-t border-white/15 pt-8 sm:grid-cols-2 xl:grid-cols-5">
             {philosophy.map((item) => {
               const Icon = item.icon;
               return (
-                <article key={item.title} className="border-white/25 sm:border-l sm:pl-8">
+                <article key={item.title} className="rounded-[7px] border border-white/10 bg-white/[0.035] p-5">
                   <Icon className="mb-5 size-8 text-white" strokeWidth={1.5} />
                   <h3 className="text-lg font-semibold leading-tight">{item.title}</h3>
                   <p className="mt-4 text-sm leading-6 text-white/76">{item.copy}</p>
@@ -215,37 +215,47 @@ export function PhilosophyBand() {
 export function ServicesPreview({ intro = true }: { intro?: boolean }) {
   return (
     <section className="section-shell" id="expertise">
-      <div className={intro ? "grid gap-10 lg:grid-cols-[390px_1fr]" : "grid gap-8"}>
+      <div className="grid gap-10">
         {intro ? (
-          <Reveal>
-            <p className="eyebrow text-signal-600">What We Do</p>
-            <h2 className="section-title mt-4">End-to-end engineering capabilities built around <span>real product infrastructure.</span></h2>
-            <p className="mt-6 max-w-[340px] text-base leading-8 text-ink-700">
-              The offer is intentionally narrow: product surfaces, backend foundations, cloud delivery and reliability treated as one system.
-            </p>
-            <p className="mt-8 flex items-start gap-3 text-sm font-semibold leading-6 text-ink-700">
-              <Star className="mt-1 size-4 fill-ink-950 text-ink-950" />
-              Senior engineering attention on every engagement.
-            </p>
+          <Reveal className="grid gap-8 border-b border-line pb-10 lg:grid-cols-[0.9fr_1fr] lg:items-end">
+            <div>
+              <p className="eyebrow text-signal-600">What We Do</p>
+              <h2 className="mt-4 max-w-[760px] text-[2.45rem] font-semibold leading-[1.06] tracking-[-0.02em] text-ink-950 sm:text-[3rem] lg:text-[3.55rem]">
+                Strategic engineering for products, platforms and <span className="text-signal-600">AI-enabled operations.</span>
+              </h2>
+            </div>
+            <div className="max-w-[650px] lg:justify-self-end">
+              <p className="text-base leading-8 text-ink-700">
+                The offer is intentionally focused: product systems, AI workflows, backend foundations, cloud delivery and reliability designed together.
+              </p>
+              <p className="mt-5 flex items-start gap-3 text-sm font-semibold leading-6 text-ink-700">
+                <Star className="mt-1 size-4 fill-ink-950 text-ink-950" />
+                Senior strategic and engineering attention on every engagement.
+              </p>
+            </div>
           </Reveal>
         ) : null}
 
-        <Stagger className={intro ? "capability-rail grid gap-0 overflow-hidden rounded-[8px] border border-line bg-white shadow-[0_18px_70px_rgba(6,18,41,0.06)]" : "capability-rail grid gap-0 overflow-hidden rounded-[8px] border border-line bg-white shadow-[0_18px_70px_rgba(6,18,41,0.06)]"}>
+        <Stagger className={intro ? "grid gap-4 md:grid-cols-2 xl:grid-cols-3" : "grid gap-3"}>
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <StaggerItem
                 key={service.title}
-                className="group grid gap-5 border-b border-line bg-white p-6 transition duration-300 hover:bg-panel/70 sm:grid-cols-[72px_1fr_190px] sm:items-center sm:p-7"
+                className={
+                  intro
+                    ? "group flex min-h-[330px] flex-col rounded-[8px] border border-line bg-white p-6 shadow-[0_14px_42px_rgba(6,18,41,0.035)] transition duration-300 hover:-translate-y-0.5 hover:border-signal-300 hover:shadow-[0_18px_54px_rgba(6,18,41,0.06)]"
+                    : "group grid gap-5 rounded-[8px] border border-line bg-white p-5 shadow-[0_14px_42px_rgba(6,18,41,0.035)] transition duration-300 hover:-translate-y-0.5 hover:border-signal-300 hover:shadow-[0_18px_54px_rgba(6,18,41,0.06)] sm:grid-cols-[64px_1fr] sm:p-6 xl:grid-cols-[64px_1fr_230px] xl:items-center"
+                }
               >
                 <span className="grid size-14 place-items-center rounded-[7px] border border-line bg-white text-ink-900 shadow-[0_10px_28px_rgba(6,18,41,0.05)] transition group-hover:border-signal-400 group-hover:text-signal-600">
                   <Icon className="size-7" strokeWidth={1.5} />
                 </span>
-                <div>
+                <div className={intro ? "mt-6" : ""}>
                   <h3 className="text-xl font-semibold tracking-[-0.01em] text-ink-950">{service.title}</h3>
-                  <p className="mt-3 max-w-[720px] text-sm leading-7 text-ink-700">{service.copy}</p>
+                  <p className="mt-3 max-w-[760px] text-sm leading-7 text-ink-700">{service.copy}</p>
                 </div>
-                <div className="flex flex-wrap gap-2 sm:justify-end">
+                <div className={intro ? "mt-auto flex flex-wrap gap-2 pt-6" : "flex flex-wrap gap-2 sm:col-start-2 xl:col-start-auto xl:justify-end"}>
                   {service.tags.map((tag) => (
                     <span key={tag} className="inline-flex items-center gap-1.5 rounded-[4px] border border-line bg-panel px-2.5 py-1 text-[11px] font-bold text-ink-700">
                       <TechIcon tech={tag} />
@@ -268,8 +278,8 @@ export function ProcessSection() {
       <div className="grid gap-10 lg:grid-cols-[330px_1fr_420px]">
         <Reveal>
           <p className="eyebrow text-signal-600">Our Approach</p>
-          <h2 className="section-title mt-4">We reduce risk before we write code.</h2>
-          <p className="section-copy mt-5">A proven operating model that brings clarity early, builds the right thing and ships with confidence.</p>
+          <h2 className="section-title mt-4">We turn uncertainty into a buildable operating plan.</h2>
+          <p className="section-copy mt-5">A strategy-led delivery model for choosing the right system, building it in controlled increments and proving it can operate.</p>
         </Reveal>
 
         <div className="relative">
@@ -343,7 +353,7 @@ export function PrinciplesSection() {
       <div className="grid gap-10 lg:grid-cols-[420px_1fr] lg:items-start">
         <Reveal>
           <p className="eyebrow text-signal-600">Engineering Principles</p>
-          <h2 className="section-title mt-4">Controlled delivery for systems that have to keep working.</h2>
+          <h2 className="section-title mt-4">Controlled delivery for systems that must earn trust.</h2>
         </Reveal>
         <Stagger className="grid gap-4 sm:grid-cols-2">
           {principles.map((principle, index) => (
@@ -364,10 +374,10 @@ export function ImpactSection() {
       <Reveal className="rounded-[8px] border border-line bg-white p-6 sm:p-8">
         <div className="grid gap-8 lg:grid-cols-[320px_1fr]">
           <div>
-            <p className="eyebrow text-signal-600">Proof Before Logos</p>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.02em] text-ink-950">Concrete technical assets you can judge before you commit.</h2>
+            <p className="eyebrow text-signal-600">Proof Before Scale</p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.02em] text-ink-950">Visible decisions, usable artifacts and systems you can inspect.</h2>
             <p className="mt-5 text-sm leading-7 text-ink-700">
-              BashGit Labs is young. Instead of borrowing credibility, we make the engineering process visible through practical outputs, review artifacts and reusable system patterns.
+              We make strategy tangible through system maps, delivery plans, evaluation checkpoints and operating patterns your team can use after the first release.
             </p>
             <Link href="/process" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-signal-600">
               Review the operating model <ArrowRight className="size-4" />
@@ -397,12 +407,12 @@ export function CtaBand() {
       <Reveal className="overflow-hidden rounded-[8px] bg-ink-950 text-white shadow-soft">
         <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-[0.95fr_300px_1.15fr] lg:items-center">
           <div>
-            <p className="eyebrow text-white/80">Start With The System</p>
+            <p className="eyebrow text-white/80">Start With The Operating Model</p>
             <h2 className="mt-4 max-w-[680px] text-4xl font-semibold leading-tight tracking-[-0.025em] sm:text-5xl">
-              Bring the product, platform or reliability problem you need to <span className="text-signal-400">solve properly.</span>
+              Bring the product, platform or AI workflow you need to <span className="text-signal-400">make real.</span>
             </h2>
             <p className="mt-5 max-w-[560px] text-base leading-7 text-white/78">
-              We will map the architecture, delivery path, risks and first useful increment before writing code or selling you a long engagement.
+              We will map the strategy, architecture, risks, delivery path and first useful increment before writing code or expanding scope.
             </p>
           </div>
           <div className="space-y-5 lg:text-center">
@@ -410,7 +420,7 @@ export function CtaBand() {
               Start a conversation
             </ButtonLink>
             <p className="text-sm text-white/70">
-              Or email us at <a className="font-semibold text-white underline decoration-white/30 underline-offset-4" href="mailto:hello@bashgit.com">hello@bashgit.com</a>
+              Or email us at <a className="font-semibold text-white underline decoration-white/30 underline-offset-4" href="mailto:bashgitlabs@gmail.com">bashgitlabs@gmail.com</a>
             </p>
           </div>
           <LifecycleMap compact />
@@ -465,7 +475,7 @@ export function Footer() {
           <div className="mt-6 flex gap-4">
             <Link aria-label="Contact BashGit Labs" href="/contact" className="text-ink-950 transition hover:text-signal-600"><Network className="size-6" /></Link>
             <Link aria-label="Read technical insights" href="/insights" className="text-ink-950 transition hover:text-signal-600"><GitBranch className="size-6" /></Link>
-            <a aria-label="Email" href="mailto:hello@bashgit.com" className="text-ink-950 transition hover:text-signal-600"><Mail className="size-6" /></a>
+            <a aria-label="Email" href="mailto:bashgitlabs@gmail.com" className="text-ink-950 transition hover:text-signal-600"><Mail className="size-6" /></a>
           </div>
         </div>
       </div>
@@ -491,26 +501,42 @@ function FooterColumn({ title, items }: { title: string; items: Array<{ label: s
 export function PageHero({
   eyebrow,
   title,
-  copy
+  copy,
+  variant = "light"
 }: {
   eyebrow: string;
   title: React.ReactNode;
   copy: string;
+  variant?: "light" | "dark";
 }) {
+  const isDark = variant === "dark";
+
   return (
-    <section className="relative overflow-hidden border-b border-line bg-white">
-      <div className="hero-grid absolute inset-0 opacity-60" />
+    <section className={`relative overflow-hidden border-b ${isDark ? "border-white/10 bg-ink-950 text-white" : "border-line bg-white"}`}>
+      {isDark ? (
+        <>
+          <div className="diagram-grid absolute inset-0 opacity-20" />
+          <div className="topology-lines absolute inset-0 opacity-30" />
+        </>
+      ) : (
+        <div className="hero-grid absolute inset-0 opacity-60" />
+      )}
       <div className="relative z-10 mx-auto grid max-w-[1480px] gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[0.95fr_0.65fr] lg:px-10 lg:py-24">
         <Reveal>
-          <p className="eyebrow text-signal-600">{eyebrow}</p>
-          <h1 className="mt-5 max-w-[820px] text-5xl font-semibold leading-[1.02] text-ink-950 sm:text-7xl">{title}</h1>
+          <p className={`eyebrow ${isDark ? "text-signal-300" : "text-signal-600"}`}>{eyebrow}</p>
+          <h1 className={`mt-5 max-w-[820px] text-5xl font-semibold leading-[1.02] sm:text-7xl ${isDark ? "text-white" : "text-ink-950"}`}>{title}</h1>
         </Reveal>
         <Reveal delay={0.08} className="flex items-end">
-          <div className="w-full border-l border-line pl-6">
-            <p className="max-w-[620px] text-lg leading-8 text-ink-700">{copy}</p>
+          <div className={`w-full border-l pl-6 ${isDark ? "border-white/16" : "border-line"}`}>
+            <p className={`max-w-[620px] text-lg leading-8 ${isDark ? "text-white/74" : "text-ink-700"}`}>{copy}</p>
             <div className="mt-8 flex flex-wrap gap-2">
-              {["Architecture", "Delivery", "Reliability"].map((item) => (
-                <span key={item} className="rounded-[5px] border border-line bg-white px-3 py-2 text-xs font-bold text-ink-700 shadow-[0_8px_22px_rgba(6,18,41,0.04)]">
+              {["Strategy", "Architecture", "AI Systems", "Reliability"].map((item) => (
+                <span
+                  key={item}
+                  className={`rounded-[5px] border px-3 py-2 text-xs font-bold shadow-[0_8px_22px_rgba(6,18,41,0.04)] ${
+                    isDark ? "border-white/12 bg-white/[0.08] text-white/78" : "border-line bg-white text-ink-700"
+                  }`}
+                >
                   {item}
                 </span>
               ))}
@@ -528,13 +554,13 @@ export function ContactPanel() {
       <div className="grid gap-8 lg:grid-cols-[0.75fr_1fr]">
         <Reveal className="rounded-[8px] bg-ink-950 p-8 text-white sm:p-10">
           <MessageSquare className="size-10 text-signal-400" strokeWidth={1.5} />
-          <h2 className="mt-8 text-4xl font-semibold tracking-[-0.025em]">Tell us what you want to build.</h2>
+          <h2 className="mt-8 text-4xl font-semibold tracking-[-0.025em]">Tell us what you want to make possible.</h2>
           <p className="mt-5 text-base leading-8 text-white/76">
-            Share the idea, the current stage and what would make the work feel like a clear win for your team.
+            Share the ambition, the current stage and the outcome that would make the next move worth it.
           </p>
           <div className="mt-10 space-y-4 text-sm text-white/80">
-            <p><strong className="text-white">Email:</strong> hello@bashgit.com</p>
-            <p><strong className="text-white">Engagements:</strong> product builds, modernization, DevOps, reliability retainers</p>
+            <p><strong className="text-white">Email:</strong> bashgitlabs@gmail.com</p>
+            <p><strong className="text-white">Engagements:</strong> product builds, AI workflows, modernization, platform and reliability retainers</p>
             <p><strong className="text-white">Response:</strong> one business day</p>
           </div>
         </Reveal>

@@ -19,7 +19,7 @@ const initialState: FormState = {
   name: "",
   email: "",
   company: "",
-  workType: "Architecture review",
+  workType: "Product or platform build",
   budget: "Not sure yet",
   timeline: "This month",
   message: "",
@@ -86,10 +86,10 @@ export function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-3">
         <Select
-          label="Need"
+          label="Primary need"
           value={form.workType}
           onChange={(value) => update("workType", value)}
-          options={["Architecture review", "Product build", "Backend/API work", "Cloud/DevOps", "Reliability retainer", "Other"]}
+          options={["Product or platform build", "AI-enabled workflow", "Architecture review", "Backend/API foundation", "Cloud/DevOps", "Reliability retainer", "Other"]}
         />
         <Select
           label="Budget"
@@ -106,14 +106,14 @@ export function ContactForm() {
       </div>
 
       <label className="block">
-        <span className="form-label">What should we help you move forward?</span>
+        <span className="form-label">What are you trying to make possible?</span>
         <textarea
           className="form-field min-h-[170px] resize-y py-3"
           value={form.message}
           onChange={(event) => update("message", event.target.value)}
           minLength={30}
           maxLength={2400}
-          placeholder="Share what you are building, what is not working as well as it should and what a good outcome would look like."
+          placeholder="Share the ambition, workflow, product or system you want to build. Useful context: current stage, constraints, users, data, AI expectations and what success should look like."
           required
         />
       </label>

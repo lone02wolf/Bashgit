@@ -7,11 +7,11 @@ import { SmoothScroll } from "@/components/smooth-scroll";
 
 export const metadata: Metadata = {
   title: {
-    default: "BashGit Labs - Premium Software Engineering Consultancy",
+    default: "BashGit Labs - Strategy-Led Software, AI & Cloud Engineering",
     template: "%s | BashGit Labs"
   },
   description:
-    "BashGit Labs designs, builds and operates reliable software platforms, backend systems, cloud infrastructure, DevOps and observability foundations for serious product teams.",
+    "BashGit Labs designs, builds and operates reliable software platforms, AI-enabled workflows, backend systems, cloud infrastructure and observability foundations for serious product teams.",
   metadataBase: new URL("https://bashgit.com")
 };
 

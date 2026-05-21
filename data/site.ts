@@ -37,107 +37,113 @@ export const navItems = [
 ];
 
 export const trustItems = [
-  { icon: Compass, label: "Founder-led architecture attention" },
-  { icon: Layers3, label: "Backend, cloud and reliability together" },
-  { icon: PackageCheck, label: "Delivery artifacts from day one" },
-  { icon: Network, label: "Built for long-term product ownership" }
+  { icon: Compass, label: "Founder-led technical strategy" },
+  { icon: Layers3, label: "Product, AI, cloud and reliability together" },
+  { icon: PackageCheck, label: "Decision artifacts from day one" },
+  { icon: Network, label: "Built for long-term operating leverage" }
 ];
 
 export const operatingLayers = [
   {
     title: "Product Layer",
-    items: ["Interfaces", "Workflows", "User Journeys"],
+    items: ["Interfaces", "Workflows", "Decision Journeys"],
     icon: Blocks,
     signal: "User behavior",
-    output: "usable product surface"
+    output: "adopted product surface"
   },
   {
     title: "Application Layer",
-    items: ["APIs", "Services", "Business Logic"],
+    items: ["APIs", "Services", "AI Workflows"],
     icon: Workflow,
     signal: "Domain contracts",
-    output: "changeable service core"
+    output: "changeable operating core"
   },
   {
     title: "Data Layer",
-    items: ["Databases", "Cache", "Storage"],
+    items: ["Databases", "Cache", "Knowledge"],
     icon: Database,
     signal: "State integrity",
-    output: "trusted data flows"
+    output: "trusted data and context"
   },
   {
     title: "Infrastructure Layer",
     items: ["Cloud", "Containers", "Networking"],
     icon: Cloud,
     signal: "Runtime control",
-    output: "repeatable environments"
+    output: "repeatable delivery environments"
   },
   {
     title: "Reliability Layer",
     items: ["Monitoring", "Logging", "Backups"],
     icon: LineChart,
     signal: "Production feedback",
-    output: "visible operations"
+    output: "visible operating signals"
   }
 ];
 
 export const philosophy = [
   {
     icon: Box,
-    title: "Architecture before acceleration",
-    copy: "We design the right foundation before writing the first line of code."
+    title: "Strategy before acceleration",
+    copy: "We clarify the business problem, operating model and technical constraints before committing engineering effort."
   },
   {
     icon: GitBranch,
     title: "Reliability before scale",
-    copy: "We build for stability, observability and long-term maintainability."
+    copy: "We design software, AI features and cloud systems to be observable, recoverable and maintainable."
   },
   {
     icon: Layers3,
-    title: "Maintainability before speed",
-    copy: "Clean code, clear structure and strong engineering practices."
+    title: "Systems before features",
+    copy: "We connect product surfaces, application logic, data, infrastructure and intelligence into one operating system."
   },
   {
     icon: ServerCog,
-    title: "Infrastructure as a product",
-    copy: "We treat infrastructure, CI/CD and monitoring as core product layers."
+    title: "Automation with control",
+    copy: "We use AI and automation where they remove drag, with guardrails, evaluation and human ownership."
   },
   {
     icon: ShieldCheck,
-    title: "Partnership over projects",
-    copy: "We stay with you beyond launch to support growth and evolution."
+    title: "Partnership over delivery tickets",
+    copy: "We stay close to outcomes, not only tasks, so the system keeps improving after launch."
   }
 ];
 
 export const services = [
   {
     icon: Box,
-    title: "Product Engineering",
-    copy: "SaaS modules, dashboards and internal tools designed around real workflows, clean state and maintainable frontend architecture.",
+    title: "Product Systems Engineering",
+    copy: "SaaS products, dashboards and internal platforms shaped around real workflows, clear decision paths and durable frontend architecture.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"]
   },
   {
+    icon: Sparkles,
+    title: "AI-Enabled Workflows",
+    copy: "Retrieval, copilots, classification, document workflows and decision-support tools built with evaluation, security and operational controls from the start.",
+    tags: ["LLM APIs", "RAG", "Vector Search", "Evaluations"]
+  },
+  {
     icon: Braces,
-    title: "Backend & APIs",
-    copy: "Service boundaries, API contracts, authentication, database design and integration layers built to survive product change.",
+    title: "Backend & API Platforms",
+    copy: "Service boundaries, API contracts, authentication, data models and integration layers designed to support product change without architectural drift.",
     tags: ["NestJS", "Node.js", "GraphQL", "PostgreSQL"]
   },
   {
     icon: Cog,
     title: "Platform Engineering",
-    copy: "Practical platform foundations for teams that need repeatable environments, controlled releases and operational clarity.",
+    copy: "Practical foundations for teams that need repeatable environments, controlled releases, secure configuration and dependable delivery operations.",
     tags: ["Kubernetes", "Helm", "ArgoCD", "Ingress"]
   },
   {
     icon: CloudUpload,
     title: "Cloud & DevOps",
-    copy: "Cloud architecture, infrastructure as code and CI/CD pipelines that reduce manual release risk and improve team velocity.",
+    copy: "Cloud architecture, infrastructure as code and CI/CD pipelines that reduce release risk, improve speed and make ownership explicit.",
     tags: ["AWS", "GCP", "Azure", "Terraform"]
   },
   {
     icon: LineChart,
     title: "Observability & Reliability",
-    copy: "Metrics, logs, alerts, runbooks and recovery paths that make production behavior visible before it becomes a customer problem.",
+    copy: "Metrics, logs, alerts, runbooks and recovery paths that expose product, platform and AI behavior before customers feel the cost.",
     tags: ["Prometheus", "Grafana", "Loki", "Alerts"]
   }
 ];
@@ -145,68 +151,75 @@ export const services = [
 export const processSteps = [
   {
     icon: Radar,
-    title: "Discover & Define",
+    title: "Frame the Real Problem",
     shortTitle: "Diagnose",
-    copy: "We dig into your business, users and technical landscape to uncover the root problem, not just symptoms."
+    copy: "We clarify the business outcome, user behavior, technical landscape and constraints before prescribing a build."
   },
   {
     icon: Box,
-    title: "Architect & Plan",
+    title: "Architect the Operating Model",
     shortTitle: "Architect",
-    copy: "We design the system architecture, data model and delivery plan with scalability and security in view."
+    copy: "We design the product, data, AI, platform and delivery model with scalability, security and ownership in view."
   },
   {
     icon: Code2,
-    title: "Build & Deliver",
+    title: "Build Controlled Increments",
     shortTitle: "Build",
-    copy: "We build iteratively with clean code, automated tests and CI/CD so you get value early with minimal risk."
+    copy: "We ship working slices with clean code, tests, review gates and release discipline so value appears before risk compounds."
   },
   {
     icon: Activity,
-    title: "Operate & Evolve",
+    title: "Operate With Evidence",
     shortTitle: "Operate",
-    copy: "We instrument, monitor and alert so your team has visibility from day one."
+    copy: "We instrument product, infrastructure and AI behavior so your team can see what is happening and act with confidence."
   },
   {
     icon: Gauge,
-    title: "Optimize & Scale",
+    title: "Improve the System",
     shortTitle: "Evolve",
-    copy: "We stay with you to improve performance, reliability and developer velocity over time."
+    copy: "We turn operational signals into a focused backlog for performance, reliability, cost and product evolution."
   }
 ];
 
 export const principles = [
-  "Reliability is designed before traffic arrives.",
-  "Maintainability is a feature, not a cleanup phase.",
-  "Every critical system needs observability from day one.",
-  "Automation should remove operational ambiguity.",
-  "Delivery should be controlled, repeatable and reversible.",
+  "Strategy is only useful when it changes what gets built.",
+  "AI belongs where it improves a workflow, not where it decorates a roadmap.",
+  "Reliability is designed before traffic, users or automation arrive.",
+  "Maintainability is a product feature, not a cleanup phase.",
+  "Every critical path needs observability, ownership and a recovery plan.",
   "Architecture should scale with the business, not ahead of it."
 ];
 
 export const results = [
   {
     icon: ClipboardCheck,
-    title: "Architecture Review Sprint",
-    copy: "A focused technical review that produces a system map, risk register, decision log and prioritized delivery path."
+    title: "Strategic Architecture Review",
+    copy: "A focused review that produces a system map, risk register, AI and automation opportunities, decision log and prioritized delivery path."
   },
   {
     icon: LockKeyhole,
     title: "Cloud Delivery Foundation",
-    copy: "A production-ready base for environments, CI/CD, infrastructure as code, secrets, release checks and rollback discipline."
+    copy: "A production-ready base for environments, CI/CD, infrastructure as code, secrets, release checks, observability and rollback discipline."
   },
   {
     icon: Zap,
-    title: "Reliability Control Plane",
-    copy: "Dashboards, alerts, runbooks and operational signals that help teams understand the system before incidents escalate."
+    title: "Operational Intelligence Layer",
+    copy: "Dashboards, alerts, runbooks and decision signals that help teams understand the system before risk becomes expensive."
   }
 ];
 
 export const insights = [
   {
+    category: "AI Systems Guide",
+    title: "AI features need operating discipline, not just model access",
+    excerpt: "How to design retrieval, evaluation, cost controls and human review around AI workflows that matter.",
+    date: "May 2026",
+    readTime: "7 min read"
+  },
+  {
     category: "Architecture Guide",
-    title: "Designing backend systems that can be changed without drama",
-    excerpt: "A practical look at boundaries, contracts and deployment habits that keep product teams moving.",
+    title: "Designing backend systems that can change without drama",
+    excerpt: "A practical look at boundaries, contracts and deployment habits that keep product teams moving without compounding debt.",
     date: "May 2026",
     readTime: "7 min read"
   },
@@ -216,33 +229,26 @@ export const insights = [
     excerpt: "Dashboards and alerts are useful, but the real advantage is designing systems that explain themselves.",
     date: "April 2026",
     readTime: "6 min read"
-  },
-  {
-    category: "Platform Guide",
-    title: "When Kubernetes helps and when it quietly taxes the team",
-    excerpt: "How to evaluate orchestration through operational maturity, release cadence and ownership.",
-    date: "March 2026",
-    readTime: "8 min read"
   }
 ];
 
-export const techStack = ["Next.js", "React", "TypeScript", "NestJS", "PostgreSQL", "Redis", "AWS / GCP", "Kubernetes", "Terraform", "Prometheus", "Grafana", "Loki"];
+export const techStack = ["Next.js", "React", "TypeScript", "NestJS", "PostgreSQL", "Redis", "LLM APIs", "RAG", "Vector Search", "Evaluations", "AWS / GCP", "Kubernetes", "Terraform", "Prometheus", "Grafana", "Loki"];
 
 export const engagementModels = [
   {
     title: "Founder-Led Product Build",
-    copy: "For teams turning a validated workflow into a production-grade application. We own architecture, core implementation, release flow and early operational foundations.",
-    fit: "Best for B2B SaaS modules, internal platforms, admin systems and workflow-heavy tools."
+    copy: "For teams turning a strategic workflow into a production-grade product. We own architecture, core implementation, release flow and the early operating foundation.",
+    fit: "Best for B2B SaaS products, internal platforms, AI-enabled workflows and workflow-heavy tools."
   },
   {
     title: "System Modernization",
-    copy: "For products carrying architectural debt, fragile deployments or slow backend workflows. We map constraints, isolate risk and replace the parts blocking delivery.",
-    fit: "Best for API redesigns, database boundaries, cloud moves and legacy service cleanup."
+    copy: "For products carrying architectural debt, fragile deployments, weak data boundaries or slow operating workflows. We isolate risk and replace the parts blocking momentum.",
+    fit: "Best for API redesigns, data and AI readiness, cloud moves and legacy service cleanup."
   },
   {
     title: "Platform & Reliability Retainer",
-    copy: "For teams that need senior infrastructure support without building a full platform group. We improve environments, delivery, observability and incident readiness.",
-    fit: "Best for Kubernetes, CI/CD, monitoring, cost control and production hardening."
+    copy: "For teams that need senior operating leverage without building a full platform group. We improve environments, delivery, observability, automation and incident readiness.",
+    fit: "Best for CI/CD, cloud operations, monitoring, AI workflow controls, cost discipline and production hardening."
   }
 ];
 
@@ -250,31 +256,39 @@ export const labSystems = [
   {
     icon: Rocket,
     title: "BashGit Launch Base",
-    copy: "A reusable production foundation for new product builds: repository structure, auth-ready backend, CI/CD, environments and deployment hygiene.",
-    outcome: "Faster path from idea to reliable first release."
+    copy: "A reusable production foundation for serious product builds: repository structure, auth-ready backend, data model, CI/CD, environments and deployment hygiene.",
+    outcome: "A faster path from strategic idea to reliable first release."
   },
   {
     icon: ShieldCheck,
     title: "Reliability Review Kit",
-    copy: "A structured review model for logging, metrics, alerts, backups, runbooks, ownership and incident readiness.",
-    outcome: "Clear visibility into what can fail and what to fix first."
+    copy: "A structured review model for logging, metrics, alerts, backups, runbooks, ownership, AI behavior and incident readiness.",
+    outcome: "Clear visibility into what can fail, what matters and what to fix first."
   },
   {
     icon: ArrowUpRight,
-    title: "Platform Blueprint",
-    copy: "Opinionated cloud and delivery patterns for teams moving toward containers, managed services and infrastructure as code.",
-    outcome: "A practical architecture path without over-engineering."
+    title: "AI Operating Blueprint",
+    copy: "A pragmatic plan for retrieval, model integration, evaluation, data boundaries, observability and human review in production workflows.",
+    outcome: "Useful automation without turning the product into an uncontrolled experiment."
   }
 ];
 
 export const expertiseAreas = [
   {
-    title: "Product Surfaces",
-    points: ["SaaS applications", "Admin and operations dashboards", "Workflow-heavy internal tools", "Design system aligned interfaces"]
+    title: "Product Strategy & Surfaces",
+    points: ["SaaS applications", "Admin and operations dashboards", "Workflow-heavy internal tools", "Decision-led interface systems"]
+  },
+  {
+    title: "AI & Automation Systems",
+    points: ["LLM API integration", "Retrieval and knowledge workflows", "Evaluation and guardrails", "Human-in-the-loop operations"]
+  },
+  {
+    title: "Data & Knowledge Systems",
+    points: ["Data modeling and ownership", "Vector-ready knowledge stores", "Governed access patterns", "Operational reporting foundations"]
   },
   {
     title: "Backend Foundations",
-    points: ["REST and GraphQL APIs", "Authentication and authorization", "Service boundaries", "PostgreSQL and Redis architecture"]
+    points: ["REST and GraphQL APIs", "Authentication and authorization", "Service boundaries", "PostgreSQL, Redis and data contracts"]
   },
   {
     title: "Cloud Platforms",
@@ -282,41 +296,41 @@ export const expertiseAreas = [
   },
   {
     title: "Reliability Systems",
-    points: ["Metrics, logs and traces", "Alerting and runbooks", "Backup and recovery paths", "Performance and capacity reviews"]
+    points: ["Metrics, logs and traces", "Alerting and runbooks", "AI and workflow observability", "Performance and capacity reviews"]
   }
 ];
 
 export const serviceProofPoints = [
-  "Architecture documents your team can actually use",
-  "Production-ready repositories with CI, testing and release checks",
-  "Observable systems with practical dashboards and alerts",
-  "Clear ownership boundaries for product, application, data and infrastructure",
-  "Senior review on security, reliability and long-term maintainability"
+  "Strategy and architecture documents your team can actually use",
+  "Production-ready repositories with CI, testing, evaluation and release checks",
+  "Observable systems with practical dashboards, alerts and operating signals",
+  "Clear ownership boundaries for product, application, AI, data and infrastructure",
+  "Senior review on security, reliability, cost and long-term maintainability"
 ];
 
 export const processDeliverables = [
   {
     phase: "Discovery",
-    output: "System map, business constraints, risk register and decision log"
+    output: "System map, business constraints, AI opportunities, risk register and decision log"
   },
   {
     phase: "Architecture",
-    output: "Target architecture, data model, interface contracts and delivery sequence"
+    output: "Target architecture, data model, AI workflow boundaries, interface contracts and delivery sequence"
   },
   {
     phase: "Delivery",
-    output: "Working increments, tests, CI/CD, release notes and operational visibility"
+    output: "Working increments, tests, evaluations, CI/CD, release notes and operational visibility"
   },
   {
     phase: "Operate",
-    output: "Dashboards, alerts, runbooks, cost review and continuous improvement backlog"
+    output: "Dashboards, alerts, runbooks, cost review, model behavior review and continuous improvement backlog"
   }
 ];
 
 export const operatingStandards = [
   "Every important decision has context, owner and tradeoff documented.",
-  "Every production path has logs, metrics or traces that help explain behavior.",
-  "Every deployment path should be repeatable by the team, not only by us.",
+  "Every AI-enabled workflow has purpose, evaluation, guardrails and a rollback path.",
+  "Every production path has logs, metrics or traces that explain behavior.",
   "Every handoff includes enough detail for future engineers to extend the system."
 ];
 

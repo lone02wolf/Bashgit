@@ -18,16 +18,16 @@ const layers: Array<{
   accent?: boolean;
   width: string;
 }> = [
-  { icon: CubeIcon, title: "Product Surface", detail: "Web app / Admin / Workflows", meta: "UX contracts", signal: "Adoption", width: "sm:w-[70%]" },
-  { icon: AppIcon, title: "Service Core", detail: "APIs / Auth / Domain logic", meta: "Boundaries", signal: "Change speed", accent: true, width: "sm:w-[84%]" },
+  { icon: CubeIcon, title: "Product Surface", detail: "Web app / Admin / Workflows", meta: "Decision paths", signal: "Adoption", width: "sm:w-[70%]" },
+  { icon: AppIcon, title: "Intelligence & Service Core", detail: "APIs / AI workflows / Domain logic", meta: "Boundaries", signal: "Leverage", accent: true, width: "sm:w-[84%]" },
   { icon: GearIcon, title: "Cloud Runtime", detail: "Containers / IaC / Secrets", meta: "Repeatability", signal: "Release safety", accent: true, width: "sm:w-[78%]" },
-  { icon: BarIcon, title: "Reliability Plane", detail: "Metrics / Logs / Alerts", meta: "Signals", signal: "Incident control", accent: true, width: "sm:w-[74%]" }
+  { icon: BarIcon, title: "Reliability Plane", detail: "Metrics / Logs / Evaluations", meta: "Signals", signal: "Operating control", accent: true, width: "sm:w-[74%]" }
 ];
 
 const stores = [
   { icon: DatabaseIcon, label: "PostgreSQL", detail: "source of truth" },
   { icon: RedisIcon, label: "Redis", detail: "cache / queues" },
-  { icon: BucketIcon, label: "Object Store", detail: "files / backups" }
+  { icon: BucketIcon, label: "Knowledge Store", detail: "files / context" }
 ];
 
 const pipeline = [
@@ -38,7 +38,7 @@ const pipeline = [
   { icon: BarIcon, label: "Monitor" }
 ];
 
-const reviewSignals = ["risk register", "release checks", "runbooks", "rollback path"];
+const reviewSignals = ["risk register", "eval checks", "runbooks", "rollback path"];
 
 const plateMotion = {
   hidden: { opacity: 0, y: 16, scale: 0.985 },
@@ -57,7 +57,7 @@ export function ArchitectureDiagram() {
       <div className="absolute inset-x-5 top-4 flex items-center justify-between border-b border-white/10 pb-3">
         <div>
           <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-signal-400">BashGit System Map</p>
-          <p className="mt-1 text-xs text-white/60">architecture / delivery / operations</p>
+          <p className="mt-1 text-xs text-white/60">strategy / intelligence / operations</p>
         </div>
         <div className="hidden items-center gap-2 text-[11px] font-semibold text-white/60 sm:flex">
           <span className="size-2 rounded-full bg-emerald-400" />

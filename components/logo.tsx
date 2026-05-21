@@ -36,9 +36,9 @@ export function LogoMark({ className = "" }: { className?: string }) {
 
 export function Logo() {
   return (
-    <span className="flex items-center gap-3">
+    <span className="flex items-center">
       <LogoMark className="size-9" />
-      <span className="flex items-baseline gap-1.5 text-ink-950">
+      <span className="ml-1 flex items-baseline gap-1.5 text-ink-950">
         <span className="text-xl font-extrabold tracking-[-0.035em]">BashGit</span>
         <span className="text-lg font-semibold tracking-[-0.025em] text-ink-700">Labs</span>
       </span>
