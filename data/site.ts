@@ -40,7 +40,7 @@ export const trustItems = [
   { icon: Compass, label: "Founder-led technical strategy" },
   { icon: Layers3, label: "Product, AI, cloud and reliability together" },
   { icon: PackageCheck, label: "Decision artifacts from day one" },
-  { icon: Network, label: "Built for long-term operating leverage" }
+  { icon: Network, label: "Jaipur-based, built for India and beyond" }
 ];
 
 export const operatingLayers = [

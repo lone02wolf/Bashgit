@@ -3,7 +3,12 @@ import { ExpertiseMatrix, ExpertiseOperatingModel, ExpertiseProof, TechnologySec
 import { CtaBand, PageHero, PrinciplesSection } from "@/components/sections";
 
 export const metadata: Metadata = {
-  title: "Expertise"
+  title: "Software, AI & Cloud Engineering Expertise",
+  description:
+    "Technical expertise across product engineering, AI automation, backend development, cloud platforms and reliability for teams in Jaipur, India and beyond.",
+  alternates: {
+    canonical: "/expertise"
+  }
 };
 
 export default function ExpertisePage() {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   CtaBand,
   Hero,
@@ -8,6 +9,12 @@ import {
   ServicesPreview
 } from "@/components/sections";
 import { LabSystemsSection } from "@/components/business-sections";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/"
+  }
+};
 
 export default function Home() {
   return (

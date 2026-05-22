@@ -4,7 +4,12 @@ import { CtaBand, PageHero, ProcessSection, PrinciplesSection } from "@/componen
 import { LifecycleMap } from "@/components/architecture-diagram";
 
 export const metadata: Metadata = {
-  title: "Process"
+  title: "Software Delivery Process",
+  description:
+    "A practical software delivery process for strategy, architecture, product development, AI workflows, cloud systems and reliability engineering.",
+  alternates: {
+    canonical: "/process"
+  }
 };
 
 export default function ProcessPage() {

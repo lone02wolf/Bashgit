@@ -3,7 +3,12 @@ import { ContactPanel, PageHero } from "@/components/sections";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
 export const metadata: Metadata = {
-  title: "Contact"
+  title: "Contact a Software Development Company in Jaipur",
+  description:
+    "Contact BashGit Labs in Jaipur, India for software development, AI workflow development, backend engineering, cloud platforms and reliability work.",
+  alternates: {
+    canonical: "/contact"
+  }
 };
 
 const nextSteps = [
@@ -18,7 +23,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title={<>Bring the ambition. We will map the system it needs.</>}
-        copy="Start a practical conversation about the product, AI workflow, platform or reliability challenge you want to turn into a durable operating advantage."
+        copy="Start a practical conversation with a Jaipur-based software engineering studio about the product, AI workflow, platform or reliability challenge you want to turn into a durable operating advantage."
         variant="dark"
       />
       <ContactPanel />

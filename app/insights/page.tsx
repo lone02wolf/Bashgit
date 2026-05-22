@@ -3,7 +3,12 @@ import { InsightEditorial } from "@/components/business-sections";
 import { CtaBand, InsightsList, PageHero } from "@/components/sections";
 
 export const metadata: Metadata = {
-  title: "Insights"
+  title: "Software Engineering Insights",
+  description:
+    "Field notes from BashGit Labs on AI systems, software architecture, backend development, cloud reliability and engineering strategy.",
+  alternates: {
+    canonical: "/insights"
+  }
 };
 
 export default function InsightsPage() {

@@ -4,7 +4,12 @@ import { CtaBand, PageHero } from "@/components/sections";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 
 export const metadata: Metadata = {
-  title: "About"
+  title: "About Our Jaipur Software Engineering Studio",
+  description:
+    "BashGit Labs is a Jaipur, India based software, AI and cloud engineering studio for teams that need strategy-led technical execution.",
+  alternates: {
+    canonical: "/about"
+  }
 };
 
 const commitments = [
@@ -20,7 +25,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About BashGit Labs"
         title={<>A focused engineering company for systems that need strategic weight.</>}
-        copy="BashGit Labs is a founder-led software, AI and cloud engineering studio built around strategic clarity, careful execution and production systems that improve over time."
+        copy="BashGit Labs is a founder-led software, AI and cloud engineering studio in Jaipur, India, built around strategic clarity, careful execution and production systems that improve over time."
         variant="dark"
       />
       <section className="section-shell">

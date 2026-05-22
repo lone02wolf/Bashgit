@@ -33,7 +33,7 @@ export function Hero() {
               We turn ambitious product ideas into reliable operating systems.
             </h1>
             <p className="mt-7 max-w-[540px] text-base leading-8 text-ink-700 sm:text-lg">
-              BashGit Labs helps founders and product teams design, build and operate software platforms, AI-enabled workflows and cloud foundations that can carry real business pressure.
+              BashGit Labs is a Jaipur, India based software engineering studio helping founders and product teams design, build and operate platforms, AI-enabled workflows and cloud foundations that can carry real business pressure.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
               <ButtonLink href="/contact">Start a conversation</ButtonLink>
@@ -453,9 +453,10 @@ export function Footer() {
   ];
   const serviceItems = [
     { label: "Product Engineering", href: "/services" },
+    { label: "AI Workflow Development", href: "/services" },
     { label: "Backend & APIs", href: "/services" },
-    { label: "DevOps & Cloud", href: "/services" },
-    { label: "Reliability", href: "/services" }
+    { label: "Cloud & DevOps", href: "/services" },
+    { label: "Reliability Engineering", href: "/services" }
   ];
   const technologyItems = techStack.slice(0, 5).map((item) => ({ label: item, href: "/expertise" }));
 
@@ -464,7 +465,10 @@ export function Footer() {
       <div className="mx-auto grid max-w-[1480px] gap-10 px-5 py-10 sm:px-8 lg:grid-cols-[1.4fr_0.7fr_0.9fr_0.9fr_0.8fr] lg:px-10">
         <div>
           <Logo />
-          <p className="mt-5 max-w-[260px] text-sm leading-6 text-ink-700">Engineering reliable software systems that drive real business impact.</p>
+          <p className="mt-5 max-w-[280px] text-sm leading-6 text-ink-700">
+            Jaipur-based software, AI and cloud engineering for serious product teams across India.
+          </p>
+          <p className="mt-5 text-sm font-semibold text-ink-800">Jaipur, Rajasthan, India</p>
           <p className="mt-10 text-sm text-ink-500">(c) 2026 BashGit Labs. All rights reserved.</p>
         </div>
         <FooterColumn title="Company" items={companyItems} />
@@ -560,6 +564,7 @@ export function ContactPanel() {
           </p>
           <div className="mt-10 space-y-4 text-sm text-white/80">
             <p><strong className="text-white">Email:</strong> bashgitlabs@gmail.com</p>
+            <p><strong className="text-white">Base:</strong> Jaipur, India. Working with teams remotely across India.</p>
             <p><strong className="text-white">Engagements:</strong> product builds, AI workflows, modernization, platform and reliability retainers</p>
             <p><strong className="text-white">Response:</strong> one business day</p>
           </div>
