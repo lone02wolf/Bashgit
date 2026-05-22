@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://bashgit.com"),
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
       { url: "/icon.svg", type: "image/svg+xml" }
     ],
     shortcut: "/favicon.ico",
