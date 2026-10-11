@@ -30,9 +30,6 @@ import {
 
 export const navItems = [
   { href: "/services", label: "Services" },
-  { href: "/expertise", label: "Expertise" },
-  { href: "/process", label: "Process" },
-  { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" }
 ];
 

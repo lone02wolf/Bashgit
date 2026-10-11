@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { publicEmail } from "@/data/company";
 import { ArrowRight, GitBranch, Mail, MessageSquare, Network, Star } from "lucide-react";
 import type React from "react";
-import { ArchitectureDiagram, LifecycleMap } from "@/components/architecture-diagram";
+import { LifecycleMap } from "@/components/architecture-diagram";
 import { ButtonLink } from "@/components/button-link";
 import { ContactForm } from "@/components/contact-form";
 import { Logo } from "@/components/logo";
@@ -15,54 +16,10 @@ import {
   processSteps,
   results,
   services,
-  techStack,
-  trustItems
+  techStack
 } from "@/data/site";
 
-export function Hero() {
-  return (
-    <section className="hero-stage relative overflow-hidden border-b border-line/70 bg-white">
-      <div className="hero-grid absolute inset-0 opacity-70" />
-      <div className="mx-auto grid max-w-[1480px] gap-10 px-5 pb-14 pt-14 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10 lg:pb-20 lg:pt-20">
-        <div className="relative z-10 flex min-w-0 flex-col justify-center">
-          <Reveal>
-            <p className="eyebrow">
-              Strategy-Led Software, AI & Cloud Engineering <span />
-            </p>
-            <h1 className="mt-5 max-w-[680px] text-[2.6rem] font-semibold leading-[1.02] text-ink-950 sm:text-[3.75rem] sm:leading-[1] lg:text-[4.25rem] xl:text-[4.7rem]">
-              We turn ambitious product ideas into reliable operating systems.
-            </h1>
-            <p className="mt-7 max-w-[540px] text-base leading-8 text-ink-700 sm:text-lg">
-              BashGit Labs is a Jaipur, India based software engineering studio helping founders and product teams design, build and operate platforms, AI-enabled workflows and cloud foundations that can carry real business pressure.
-            </p>
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <ButtonLink href="/contact">Start a conversation</ButtonLink>
-              <ButtonLink href="/expertise" variant="ghost" arrow="down">
-                See how we think
-              </ButtonLink>
-            </div>
-          </Reveal>
-        </div>
-
-        <Reveal delay={0.1} className="relative z-10 min-w-0">
-          <ArchitectureDiagram />
-        </Reveal>
-
-        <Stagger className="relative z-10 grid gap-0 overflow-hidden rounded-[8px] border border-line bg-white/78 shadow-[0_18px_56px_rgba(6,18,41,0.07)] backdrop-blur sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
-          {trustItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <StaggerItem key={item.label} className="flex items-center gap-4 border-b border-r border-line/80 p-5 lg:border-b-0">
-                <Icon className="size-7 shrink-0 text-ink-900" strokeWidth={1.6} />
-                <span className="max-w-[210px] text-sm font-semibold leading-5 text-ink-800">{item.label}</span>
-              </StaggerItem>
-            );
-          })}
-        </Stagger>
-      </div>
-    </section>
-  );
-}
+export { Hero } from "@/components/hero";
 
 export function OperatingLayer() {
   return (
@@ -244,8 +201,8 @@ export function ServicesPreview({ intro = true }: { intro?: boolean }) {
                 key={service.title}
                 className={
                   intro
-                    ? "group flex min-h-[330px] flex-col rounded-[8px] border border-line bg-white p-6 shadow-[0_14px_42px_rgba(6,18,41,0.035)] transition duration-300 hover:-translate-y-0.5 hover:border-signal-300 hover:shadow-[0_18px_54px_rgba(6,18,41,0.06)]"
-                    : "group grid gap-5 rounded-[8px] border border-line bg-white p-5 shadow-[0_14px_42px_rgba(6,18,41,0.035)] transition duration-300 hover:-translate-y-0.5 hover:border-signal-300 hover:shadow-[0_18px_54px_rgba(6,18,41,0.06)] sm:grid-cols-[64px_1fr] sm:p-6 xl:grid-cols-[64px_1fr_230px] xl:items-center"
+                    ? "group flex min-h-[330px] flex-col rounded-[8px] border border-line bg-white p-6 shadow-[0_14px_42px_rgba(6,18,41,0.035)] transition duration-300 motion-safe:hover:-translate-y-0.5 hover:border-signal-300 hover:shadow-[0_18px_54px_rgba(6,18,41,0.06)]"
+                    : "group grid gap-5 rounded-[8px] border border-line bg-white p-5 shadow-[0_14px_42px_rgba(6,18,41,0.035)] transition duration-300 motion-safe:hover:-translate-y-0.5 hover:border-signal-300 hover:shadow-[0_18px_54px_rgba(6,18,41,0.06)] sm:grid-cols-[64px_1fr] sm:p-6 xl:grid-cols-[64px_1fr_230px] xl:items-center"
                 }
               >
                 <span className="grid size-14 place-items-center rounded-[7px] border border-line bg-white text-ink-900 shadow-[0_10px_28px_rgba(6,18,41,0.05)] transition group-hover:border-signal-400 group-hover:text-signal-600">
@@ -420,7 +377,7 @@ export function CtaBand() {
               Start a conversation
             </ButtonLink>
             <p className="text-sm text-white/70">
-              Or email us at <a className="font-semibold text-white underline decoration-white/30 underline-offset-4" href="mailto:bashgitlabs@gmail.com">bashgitlabs@gmail.com</a>
+              Or email us at <a className="font-semibold text-white underline decoration-white/30 underline-offset-4" href={`mailto:${publicEmail}`}>{publicEmail}</a>
             </p>
           </div>
           <LifecycleMap compact />
@@ -434,7 +391,7 @@ export function InsightsList() {
   return (
     <Stagger className="grid gap-5 md:grid-cols-3">
       {insights.map((post) => (
-        <StaggerItem key={post.title} className="rounded-[8px] border border-line bg-white p-7 transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+        <StaggerItem key={post.title} className="rounded-[8px] border border-line bg-white p-7 transition duration-300 motion-safe:hover:-translate-y-1 hover:shadow-soft">
           <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-signal-600">{post.category}</p>
           <h3 className="mt-5 text-2xl font-semibold leading-tight tracking-[-0.02em] text-ink-950">{post.title}</h3>
           <p className="mt-5 text-sm leading-7 text-ink-700">{post.excerpt}</p>
@@ -479,7 +436,7 @@ export function Footer() {
           <div className="mt-6 flex gap-4">
             <Link aria-label="Contact BashGit Labs" href="/contact" className="text-ink-950 transition hover:text-signal-600"><Network className="size-6" /></Link>
             <Link aria-label="Read technical insights" href="/insights" className="text-ink-950 transition hover:text-signal-600"><GitBranch className="size-6" /></Link>
-            <a aria-label="Email" href="mailto:bashgitlabs@gmail.com" className="text-ink-950 transition hover:text-signal-600"><Mail className="size-6" /></a>
+            <a aria-label="Email" href={`mailto:${publicEmail}`} className="text-ink-950 transition hover:text-signal-600"><Mail className="size-6" /></a>
           </div>
         </div>
       </div>
@@ -563,7 +520,7 @@ export function ContactPanel() {
             Share the ambition, the current stage and the outcome that would make the next move worth it.
           </p>
           <div className="mt-10 space-y-4 text-sm text-white/80">
-            <p><strong className="text-white">Email:</strong> bashgitlabs@gmail.com</p>
+            <p><strong className="text-white">Email:</strong> <a href={`mailto:${publicEmail}`} className="underline underline-offset-4">{publicEmail}</a></p>
             <p><strong className="text-white">Base:</strong> Jaipur, India. Working with teams remotely across India.</p>
             <p><strong className="text-white">Engagements:</strong> product builds, AI workflows, modernization, platform and reliability retainers</p>
             <p><strong className="text-white">Response:</strong> one business day</p>

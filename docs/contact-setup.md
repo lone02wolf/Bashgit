@@ -44,11 +44,14 @@ On Vercel, Supabase variables are required. The local JSONL store is only for te
 
 ## Email Notification
 
-Email notifications use Resend. The recipient can be a Gmail address.
+Email notifications use Resend. Public website contact references use `hello@bashgit.com`.
+The server recipient is configured independently: keep the existing working recipient
+until the new mailbox can receive mail. Do not change deployed sending settings solely
+because the website address changed. Keep founder/admin addresses out of public copy.
 
 ```bash
 RESEND_API_KEY=
-CONTACT_TO_EMAIL=bashgitlabs@gmail.com
+CONTACT_TO_EMAIL=hello@bashgit.com
 CONTACT_FROM_EMAIL="BashGit Labs <hello@your-verified-domain.com>"
 ```
 

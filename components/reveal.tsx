@@ -1,57 +1,57 @@
 "use client";
 
 import { motion, type HTMLMotionProps } from "framer-motion";
-import type React from "react";
+import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
+import { motionTokens } from "@/lib/motion";
+import { useMotionPreference } from "@/components/motion-provider";
 
-type RevealProps = HTMLMotionProps<"div"> & {
-  delay?: number;
-};
+type RevealProps = HTMLMotionProps<"div"> & { delay?: number };
 
 export function Reveal({ children, className, delay = 0, ...props }: RevealProps) {
+  const reduceMotion = useMotionPreference();
   return (
     <motion.div
-      initial={{ opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={cn(className)}
       {...props}
+      initial={false}
+      whileInView={reduceMotion ? { opacity: 1, y: 0 } : { opacity: [0.88, 1], y: [motionTokens.distance, 0] }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: reduceMotion ? 0 : motionTokens.duration.entrance, delay: reduceMotion ? 0 : Math.min(delay, 0.15), ease: motionTokens.ease }}
+      className={cn(className)}
     >
       {children}
     </motion.div>
   );
 }
 
-export function Stagger({ children, className }: { children: React.ReactNode; className?: string }) {
+export function Stagger({ children, className }: { children: ReactNode; className?: string }) {
+  const reduceMotion = useMotionPreference();
   return (
     <motion.div
-      initial="hidden"
+      initial={false}
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-40px" }}
+      variants={{ show: { transition: { staggerChildren: reduceMotion ? 0 : motionTokens.stagger } } }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
+  const reduceMotion = useMotionPreference();
+  return (
+    <motion.div
+      initial={false}
       variants={{
-        hidden: {},
         show: {
-          transition: {
-            staggerChildren: 0.08
-          }
+          opacity: reduceMotion ? 1 : [0.88, 1],
+          y: reduceMotion ? 0 : [motionTokens.distance, 0],
+          transition: { duration: reduceMotion ? 0 : motionTokens.duration.entrance, ease: motionTokens.ease }
         }
       }}
-      className={cn(className)}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-export function StaggerItem({ children, className }: { children: React.ReactNode; className?: string }) {
-  return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 18 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
-      }}
-      className={cn(className)}
+      className={className}
     >
       {children}
     </motion.div>

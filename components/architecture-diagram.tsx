@@ -1,208 +1,62 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type React from "react";
+import { Activity, Braces, Database, PanelsTopLeft, Workflow } from "lucide-react";
+import { useMotionPreference } from "@/components/motion-provider";
+import { motionTokens } from "@/lib/motion";
 
-type IconProps = {
-  className?: string;
-};
-
-type DiagramIcon = (props: IconProps) => React.ReactElement;
-
-const layers: Array<{
-  icon: DiagramIcon;
-  title: string;
-  detail: string;
-  meta: string;
-  signal: string;
-  accent?: boolean;
-  width: string;
-}> = [
-  { icon: CubeIcon, title: "Product Surface", detail: "Web app / Admin / Workflows", meta: "Decision paths", signal: "Adoption", width: "sm:w-[70%]" },
-  { icon: AppIcon, title: "Intelligence & Service Core", detail: "APIs / AI workflows / Domain logic", meta: "Boundaries", signal: "Leverage", accent: true, width: "sm:w-[84%]" },
-  { icon: GearIcon, title: "Cloud Runtime", detail: "Containers / IaC / Secrets", meta: "Repeatability", signal: "Release safety", accent: true, width: "sm:w-[78%]" },
-  { icon: BarIcon, title: "Reliability Plane", detail: "Metrics / Logs / Evaluations", meta: "Signals", signal: "Operating control", accent: true, width: "sm:w-[74%]" }
+const systemNodes = [
+  { key: "interface", title: "Product Interface", detail: "Web apps & user workflows", icon: PanelsTopLeft },
+  { key: "backend", title: "Backend / API", detail: "Domain logic & integrations", icon: Braces },
+  { key: "data", title: "Data", detail: "Storage & retrieval", icon: Database },
+  { key: "ai", title: "AI Workflow", detail: "Context & evaluations", icon: Workflow },
+  { key: "operations", title: "Deployment / Observability", detail: "Releases, metrics & logs", icon: Activity }
 ];
-
-const stores = [
-  { icon: DatabaseIcon, label: "PostgreSQL", detail: "source of truth" },
-  { icon: RedisIcon, label: "Redis", detail: "cache / queues" },
-  { icon: BucketIcon, label: "Knowledge Store", detail: "files / context" }
-];
-
-const pipeline = [
-  { icon: CodeIcon, label: "Code" },
-  { icon: CubeIcon, label: "Build" },
-  { icon: TestIcon, label: "Test" },
-  { icon: DeployIcon, label: "Deploy" },
-  { icon: BarIcon, label: "Monitor" }
-];
-
-const reviewSignals = ["risk register", "eval checks", "runbooks", "rollback path"];
-
-const plateMotion = {
-  hidden: { opacity: 0, y: 16, scale: 0.985 },
-  show: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.58, delay }
-  })
-};
 
 export function ArchitectureDiagram() {
+  const reduceMotion = useMotionPreference();
   return (
-    <div className="system-surface relative mx-auto min-h-[520px] w-full max-w-[880px] overflow-hidden rounded-[8px] border border-ink-950/10 bg-ink-950 p-3 text-white shadow-[0_28px_90px_rgba(6,18,41,0.22)] sm:p-5">
-      <div className="diagram-grid absolute inset-0 opacity-20" />
-      <div className="absolute inset-x-5 top-4 flex items-center justify-between border-b border-white/10 pb-3">
-        <div>
-          <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-signal-400">BashGit System Map</p>
-          <p className="mt-1 text-xs text-white/60">strategy / intelligence / operations</p>
-        </div>
-        <div className="hidden items-center gap-2 text-[11px] font-semibold text-white/60 sm:flex">
-          <span className="size-2 rounded-full bg-emerald-400" />
-          production-readiness view
-        </div>
-      </div>
-      <svg className="absolute inset-2 h-[calc(100%-1rem)] w-[calc(100%-1rem)] text-signal-400" viewBox="0 0 820 520" fill="none" aria-hidden="true">
-        <defs>
-          <marker id="diagram-arrow" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3.5">
-            <path d="M0 0 7 3.5 0 7Z" fill="#86bfff" />
-          </marker>
-        </defs>
-        <path className="flow-line" d="M180 116 H82 V372 H178" stroke="currentColor" strokeDasharray="4 8" markerEnd="url(#diagram-arrow)" />
-        <path className="flow-line slow" d="M140 196 H58 V292 H140" stroke="currentColor" strokeDasharray="4 8" markerEnd="url(#diagram-arrow)" opacity="0.55" />
-        <path className="flow-line" d="M520 116 H632 V172 H724" stroke="currentColor" strokeDasharray="4 8" markerEnd="url(#diagram-arrow)" />
-        <path className="flow-line slow" d="M548 205 H640 V260 H724" stroke="currentColor" strokeDasharray="4 8" markerEnd="url(#diagram-arrow)" opacity="0.65" />
-        <path className="flow-line" d="M528 372 H660 V322 H724" stroke="currentColor" strokeDasharray="4 8" markerEnd="url(#diagram-arrow)" opacity="0.75" />
-        <path className="flow-line slow" d="M392 132 V190" stroke="#c8ddff" strokeDasharray="4 8" markerEnd="url(#diagram-arrow)" opacity="0.52" />
-        <path className="flow-line" d="M392 324 V386" stroke="#c8ddff" strokeDasharray="4 8" markerEnd="url(#diagram-arrow)" opacity="0.52" />
-        <path className="flow-line slow" d="M392 230 V292" stroke="#c8ddff" strokeDasharray="4 8" markerEnd="url(#diagram-arrow)" opacity="0.52" />
-        <circle cx="82" cy="246" r="3.2" fill="#86bfff" />
-        <circle cx="632" cy="172" r="3.2" fill="#86bfff" />
-        <circle cx="640" cy="260" r="3.2" fill="#86bfff" />
-        <circle cx="660" cy="322" r="3.2" fill="#86bfff" />
-        <circle cx="392" cy="246" r="3.2" fill="#ffffff" opacity="0.8" />
-      </svg>
-
-      <div className="relative z-10 grid min-h-[500px] grid-cols-1 items-center gap-5 pt-14 lg:grid-cols-[1fr_178px]">
-        <div className="mx-auto flex w-full min-w-0 max-w-[620px] flex-col items-center gap-3 sm:gap-4">
-          {layers.slice(0, 2).map((layer, index) => (
-            <LayerPlate key={layer.title} {...layer} delay={index * 0.08} />
+    <figure className="production-system" aria-labelledby="system-caption" aria-describedby="system-description">
+      <figcaption id="system-caption" className="flex items-center justify-between gap-3 border-b border-line pb-4 text-xs text-ink-600">
+        <span>Illustrative system architecture</span>
+        <span aria-hidden="true" className="font-mono text-ink-500">01—05</span>
+      </figcaption>
+      <p id="system-description" className="sr-only">
+        The product interface connects to a backend API, which connects to data and AI workflows.
+        Deployment and observability support the whole system. This is an illustration, not a client deployment.
+      </p>
+      <div className="system-nodes">
+        <svg className="system-connectors" viewBox="0 0 400 354" preserveAspectRatio="none" fill="none" aria-hidden="true">
+          {["M200 66V96", "M200 162V177H95V192", "M200 177H305V192", "M95 258V273H200V288", "M305 258V273H200"].map((d, index) => (
+            <motion.path key={d} d={d} stroke="currentColor" strokeWidth="1.25"
+              initial={false}
+              whileInView={reduceMotion ? { pathLength: 1, opacity: 1 } : { pathLength: [0, 1], opacity: [0.4, 1] }}
+              viewport={{ once: true }}
+              transition={{ duration: reduceMotion ? 0 : motionTokens.duration.entrance, delay: reduceMotion ? 0 : index * motionTokens.stagger, ease: motionTokens.ease }}
+            />
           ))}
-
-          <div className="grid w-full min-w-0 grid-cols-1 gap-2 px-9 sm:grid-cols-3 sm:gap-4 sm:px-16">
-            {stores.map((store, index) => {
-              const Icon = store.icon;
-              return (
-                <motion.div
-                  key={store.label}
-                  variants={plateMotion}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, margin: "-60px" }}
-                  custom={0.18 + index * 0.06}
-                  whileHover={{ y: -3 }}
-                  className="min-w-0 rounded-[6px] border border-white/12 bg-white/[0.07] p-4 text-center shadow-[0_14px_34px_rgba(0,0,0,0.22)] backdrop-blur"
-                >
-                  <Icon className="mx-auto mb-3 size-8 text-signal-300" />
-                  <p className="text-[11px] font-bold text-white sm:text-xs">{store.label}</p>
-                  <p className="mt-1 text-[10px] font-medium text-white/50">{store.detail}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {layers.slice(2).map((layer, index) => (
-            <LayerPlate key={layer.title} {...layer} delay={0.34 + index * 0.08} />
-          ))}
-        </div>
-
-        <motion.aside
-          initial={{ opacity: 0, x: 18 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.62, delay: 0.28 }}
-          className="hidden self-center rounded-[7px] border border-white/12 bg-white/[0.08] p-4 shadow-[0_18px_44px_rgba(0,0,0,0.24)] backdrop-blur lg:block"
-        >
-          <p className="mb-4 text-[11px] font-extrabold uppercase leading-4 tracking-[0.08em] text-white/80">Delivery Pipeline</p>
-          <div className="space-y-3">
-            {pipeline.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.label} className="flex h-11 items-center gap-3 rounded-[5px] border border-white/10 bg-ink-900/70 px-3 text-sm font-semibold text-white shadow-[0_6px_18px_rgba(0,0,0,0.18)]">
-                  <Icon className="size-4 text-signal-300" />
-                  {item.label}
-                </div>
-              );
-            })}
-          </div>
-          <div className="mt-5 border-t border-white/10 pt-4">
-            <p className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-white/40">Review outputs</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {reviewSignals.map((signal) => (
-                <span key={signal} className="rounded-[4px] border border-white/10 bg-white/[0.06] px-2 py-1 text-[10px] font-semibold text-white/70">
-                  {signal}
-                </span>
-              ))}
+        </svg>
+        {systemNodes.map(({ key, title, detail, icon: Icon }, index) => (
+          <motion.div key={key} className={`system-node system-node--${key}`}
+            initial={false}
+            whileInView={reduceMotion ? { opacity: 1, y: 0 } : { opacity: [0.8, 1], y: [6, 0] }}
+            viewport={{ once: true }}
+            transition={{ duration: reduceMotion ? 0 : motionTokens.duration.entrance, delay: reduceMotion ? 0 : index * motionTokens.stagger, ease: motionTokens.ease }}
+          >
+            <Icon aria-hidden="true" className="size-[18px] shrink-0 text-ink-600" strokeWidth={1.5} />
+            <div className="min-w-0">
+              <p className="text-sm font-medium leading-5 text-ink-950">{title}</p>
+              <p className="mt-0.5 text-xs leading-5 text-ink-600">{detail}</p>
             </div>
-          </div>
-        </motion.aside>
+          </motion.div>
+        ))}
       </div>
-    </div>
-  );
-}
-
-function LayerPlate({
-  icon: Icon,
-  title,
-  detail,
-  meta,
-  signal,
-  accent,
-  delay,
-  width
-}: {
-  icon: DiagramIcon;
-  title: string;
-  detail: string;
-  meta: string;
-  signal: string;
-  accent?: boolean;
-  delay: number;
-  width: string;
-}) {
-  return (
-    <motion.div
-      variants={plateMotion}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-60px" }}
-      custom={delay}
-      whileHover={{ x: 4 }}
-      className={`layer-plate group relative flex min-h-[78px] w-[95%] items-center gap-4 border border-white/12 bg-white/[0.08] px-5 py-4 shadow-[0_18px_46px_rgba(0,0,0,0.22)] backdrop-blur ${width} sm:min-h-[82px] sm:px-8`}
-    >
-      <span className="grid size-11 shrink-0 place-items-center rounded-[6px] border border-white/12 bg-ink-900/80">
-        <Icon className={accent ? "size-7 text-signal-300" : "size-7 text-white"} />
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className="block text-[11px] font-extrabold uppercase tracking-[0.06em] text-white">{title}</span>
-        <span className="mt-1 block text-xs font-medium text-white/60">{detail}</span>
-        <span className="mt-2 flex flex-wrap gap-2">
-          <span className="rounded-[4px] bg-white/[0.08] px-2 py-1 text-[10px] font-bold text-white/60">{meta}</span>
-          <span className="rounded-[4px] bg-signal-400/14 px-2 py-1 text-[10px] font-bold text-signal-300">{signal}</span>
-        </span>
-      </span>
-      <motion.span
-        className="absolute right-5 top-1/2 size-1.5 rounded-full bg-emerald-400"
-        animate={{ opacity: [0.25, 1, 0.25], scale: [0.8, 1.25, 0.8] }}
-        transition={{ duration: 2.6, repeat: Infinity, delay }}
-      />
-    </motion.div>
+    </figure>
   );
 }
 
 export function LifecycleMap({ compact = false }: { compact?: boolean }) {
+  const reduceMotion = useMotionPreference();
   const points = [
     { label: "Diagnose", output: "risk map", x: 70, y: 150 },
     { label: "Architect", output: "contracts", x: 190, y: 126 },
@@ -236,9 +90,9 @@ export function LifecycleMap({ compact = false }: { compact?: boolean }) {
             strokeWidth="2.4"
             strokeDasharray="4 8"
             strokeLinecap="round"
-            initial={{ pathLength: 0, opacity: 0.3 }}
-            animate={{ pathLength: [0, 0, 1, 1, 0], opacity: [0.3, 0.3, 1, 1, 0.3] }}
-            transition={{
+            initial={false}
+            animate={reduceMotion ? { pathLength: 1, opacity: 1 } : { pathLength: [0, 0, 1, 1, 0], opacity: [0.3, 0.3, 1, 1, 0.3] }}
+            transition={reduceMotion ? { duration: 0 } : {
               duration: 6,
               times: [0, segment.start, segment.end, 0.88, 1],
               repeat: Infinity,
@@ -271,99 +125,5 @@ export function LifecycleMap({ compact = false }: { compact?: boolean }) {
         </div>
       ) : null}
     </div>
-  );
-}
-
-function CubeIcon({ className = "" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round">
-      <path d="m12 3 7 4v8l-7 4-7-4V7l7-4Z" />
-      <path d="M5 7.2 12 11l7-3.8M12 11v8" />
-    </svg>
-  );
-}
-
-function AppIcon({ className = "" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M8 12V8.6a3.2 3.2 0 1 1 3.2 3.2H8Z" />
-      <path d="M16 12V8.6a3.2 3.2 0 1 0-3.2 3.2H16Z" />
-      <path d="M8 12v3.4a3.2 3.2 0 1 0 3.2-3.2H8Z" />
-      <path d="M16 12v3.4a3.2 3.2 0 1 1-3.2-3.2H16Z" />
-    </svg>
-  );
-}
-
-function GearIcon({ className = "" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2.8 14 5l3-.6.9 2.9-2.2 1.6.1 3 2.1 1.7-.9 2.9-3-.5-2 2.2-2-2.2-3 .5-.9-2.9 2.1-1.7.1-3-2.2-1.6.9-2.9 3 .6 2-2.2Z" />
-      <circle cx="12" cy="12" r="3.1" />
-    </svg>
-  );
-}
-
-function BarIcon({ className = "" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 19V5M4 19h17" />
-      <path d="M8 16v-4M12 16V8M16 16v-7" />
-      <path d="m7.5 9.5 3 2.5 3.5-5 4 3" />
-    </svg>
-  );
-}
-
-function DatabaseIcon({ className = "" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7">
-      <ellipse cx="12" cy="6" rx="7" ry="3" />
-      <path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6" />
-      <path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" />
-    </svg>
-  );
-}
-
-function RedisIcon({ className = "" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
-      <path d="m12 4 7 3.6-7 3.6-7-3.6L12 4Z" />
-      <path d="m5 12 7 3.6 7-3.6M5 16.5l7 3.6 7-3.6" />
-    </svg>
-  );
-}
-
-function BucketIcon({ className = "" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7">
-      <ellipse cx="12" cy="6" rx="5" ry="2.4" />
-      <path d="m7 6 1 13c.2 1.4 7.8 1.4 8 0l1-13" />
-    </svg>
-  );
-}
-
-function CodeIcon({ className = "" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m9 8-4 4 4 4M15 8l4 4-4 4" />
-    </svg>
-  );
-}
-
-function TestIcon({ className = "" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7 4h10M7 20h10M9 4c0 4 6 4 6 8s-6 4-6 8M15 4c0 4-6 4-6 8s6 4 6 8" />
-    </svg>
-  );
-}
-
-function DeployIcon({ className = "" }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="6" cy="17" r="2" />
-      <circle cx="18" cy="7" r="2" />
-      <circle cx="18" cy="17" r="2" />
-      <path d="M8 17h8M16.6 8.4 7.4 15.6" />
-    </svg>
   );
 }

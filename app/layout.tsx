@@ -1,10 +1,23 @@
 import type { Metadata, Viewport } from "next";
 import type React from "react";
+import localFont from "next/font/local";
+import "@/app/tokens.css";
 import "@/app/globals.css";
 import { Footer } from "@/components/sections";
 import { Header } from "@/components/header";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { StructuredData } from "@/components/structured-data";
+import { MotionProvider } from "@/components/motion-provider";
+import { motionCssVariables } from "@/lib/motion";
+
+const geist = localFont({
+  src: "./fonts/Geist-Variable.ttf",
+  variable: "--font-geist",
+  weight: "100 900",
+  display: "swap",
+  fallback: ["Arial", "sans-serif"],
+  adjustFontFallback: "Arial"
+});
 
 export const metadata: Metadata = {
   title: {
@@ -56,13 +69,16 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={geist.variable} style={motionCssVariables}>
       <body className="font-sans antialiased">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <StructuredData />
-        <SmoothScroll />
-        <Header />
-        <main className="pt-16">{children}</main>
-        <Footer />
+        <MotionProvider>
+          <SmoothScroll />
+          <Header />
+          <main id="main-content" tabIndex={-1}>{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

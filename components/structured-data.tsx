@@ -1,3 +1,5 @@
+import { publicEmail } from "@/data/company";
+
 const siteUrl = "https://bashgit.com";
 
 const structuredData = [
@@ -8,7 +10,7 @@ const structuredData = [
     name: "BashGit Labs",
     url: siteUrl,
     logo: `${siteUrl}/icon.svg`,
-    email: "bashgitlabs@gmail.com",
+    email: publicEmail,
     description:
       "BashGit Labs is a Jaipur, India based software engineering company designing software products, AI-enabled workflows, backend systems, cloud platforms and reliability foundations for serious teams.",
     areaServed: [
@@ -28,7 +30,7 @@ const structuredData = [
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      email: "bashgitlabs@gmail.com",
+      email: publicEmail,
       contactType: "business inquiries",
       areaServed: "IN",
       availableLanguage: ["English", "Hindi"]

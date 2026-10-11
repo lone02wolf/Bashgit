@@ -125,7 +125,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-ink-950 px-5 text-sm font-semibold text-white transition hover:bg-ink-800 disabled:cursor-not-allowed disabled:bg-ink-500"
+        className="button button-primary"
       >
         {status === "sending" ? "Sending..." : "Send inquiry"} <ArrowUpRight className="size-4" />
       </button>
